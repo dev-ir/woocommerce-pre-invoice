@@ -9,17 +9,18 @@
 	Domain Path: /languages
 */
 
-if ( ! defined( 'ABSPATH' ) ) exit;// security check
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 if( !function_exists('get_plugin_data') ){
     require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
-if( ! @define('WPI_PATH') ){
+if( ! defined('WPI_PATH') ){
 	define( 'WPI_PATH',dirname(__FILE__) );
 }
-if( ! @define('WPI_INC_PATH') ){
-	define('WPI_INC_PATH',WPI_PATH.DIRECTORY_SEPARATOR .'__inc'.DIRECTORY_SEPARATOR);
+if( ! defined('WPI_INC_PATH') ){
+	define('WPI_INC_PATH',WPI_PATH.DIRECTORY_SEPARATOR .'inc'.DIRECTORY_SEPARATOR);
 }
-if( ! @define('WPI_TPL_PATH') ){
+if( ! defined('WPI_TPL_PATH') ){
 	define('WPI_TPL_PATH',WPI_PATH.DIRECTORY_SEPARATOR .'templates'.DIRECTORY_SEPARATOR);
 }
 # Define Constans */
