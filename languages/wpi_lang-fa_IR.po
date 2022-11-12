@@ -1,0 +1,529 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Pre Invoices\n"
+"POT-Creation-Date: 2022-03-29 13:53+0430\n"
+"PO-Revision-Date: 2022-03-29 13:53+0430\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: woocommerce-pre-invoice.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: __inc/pages/tabs/wpi-tab-general.php:3
+#: __inc/woocommerce/wpi-woocommerce-method.php:60 __inc/wpi-hooks.php:50
+#: __inc/wpi-hooks.php:111
+msgid "Pre Invoice Woocommerce"
+msgstr "پیش فاکتور ووکامرس"
+
+#: __inc/pages/tabs/wpi-tab-general.php:5
+msgid "Ability to connect to SMS system"
+msgstr "امکان اتصال به سامانه پیامکی"
+
+#: __inc/pages/tabs/wpi-tab-general.php:6
+msgid "Ability to report from the pre-invoice section"
+msgstr "امکان گزارش گیری از قسمت پیش فاکتور"
+
+#: __inc/pages/tabs/wpi-tab-general.php:7
+msgid "Ability to save and view pre-invoices"
+msgstr "امکان ذخیره و مشاهده پیش فاکتورها"
+
+#: __inc/pages/tabs/wpi-tab-general.php:8
+msgid "Fully responsive"
+msgstr "کاملاً واکنشگرا"
+
+#: __inc/pages/tabs/wpi-tab-general.php:9
+msgid "Adjustable on different paper sizes (A4, A5)"
+msgstr "قابل تنظیم در اندازه های مختلف کاغذ (A4 ، A5)"
+
+#: __inc/pages/tabs/wpi-tab-information.php:62
+msgid "Invoice title"
+msgstr "عنوان فاکتور"
+
+#: __inc/pages/tabs/wpi-tab-information.php:65
+msgid "Sales Invoice"
+msgstr "ذخیره پیش فاکتور"
+
+#: __inc/pages/tabs/wpi-tab-information.php:68
+msgid "Store Name"
+msgstr "عنوان فروشگاه"
+
+#: __inc/pages/tabs/wpi-tab-information.php:76
+#: __inc/pages/tabs/wpi-tab-information.php:79
+msgid "Slogan"
+msgstr "شعار"
+
+#: __inc/pages/tabs/wpi-tab-information.php:82
+msgid "The text below the logo"
+msgstr "متن زیر لوگو"
+
+#: __inc/pages/tabs/wpi-tab-information.php:102
+msgid "Landline phone numbers"
+msgstr "شماره تلفن ثابت"
+
+#: __inc/pages/tabs/wpi-tab-information.php:108
+msgid "Please put all landlines on one line"
+msgstr "لطفاً همه تلفن های ثابت را روی یک خط قرار دهید"
+
+#: __inc/pages/tabs/wpi-tab-information.php:112
+msgid "Mobile number"
+msgstr "شماره موبایل"
+
+#: __inc/pages/tabs/wpi-tab-information.php:121
+msgid "Fax number"
+msgstr "شماره فکس"
+
+#: __inc/pages/tabs/wpi-tab-information.php:128
+#: templates/wpi-template-default.php:67
+msgid "Email"
+msgstr "پست الکترونیکی"
+
+#: __inc/pages/tabs/wpi-tab-information.php:138
+#: templates/wpi-template-default.php:62
+msgid "Website"
+msgstr "وبسایت"
+
+#: __inc/pages/tabs/wpi-tab-information.php:147
+msgid "Store Location"
+msgstr "آدرس پستی فروشگاه"
+
+#: __inc/pages/tabs/wpi-tab-information.php:168
+msgid "Store Logo"
+msgstr "لوگو فروشگاه"
+
+#: __inc/pages/tabs/wpi-tab-information.php:174
+#: __inc/pages/tabs/wpi-tab-information.php:198
+msgid "choose New Image"
+msgstr "انتخاب تصویر جدید"
+
+#: __inc/pages/tabs/wpi-tab-information.php:229
+msgid "Miscellaneous settings"
+msgstr "تنظیمات متفرقه"
+
+#: __inc/pages/tabs/wpi-tab-information.php:234
+msgid "Ability to register a pre-invoice only for site members"
+msgstr "امکان ثبت پیش فاکتور فقط برای اعضای سایت"
+
+#: __inc/pages/tabs/wpi-tab-information.php:238
+msgid "Display random sentences"
+msgstr "امکان نمایش جملات تصادفی"
+
+#: __inc/pages/tabs/wpi-tab-information.php:242
+msgid "Place of seal and signature"
+msgstr "امکان نمایش محل مهر و امضا"
+
+#: __inc/pages/tabs/wpi-tab-information.php:246
+msgid "Place pre invoice Number"
+msgstr "امکان نمایش شماره پیش فاکتور"
+
+#: __inc/pages/tabs/wpi-tab-information.php:250
+msgid "Place of Digital stamp and signature"
+msgstr "امکان نمایش مهر و امضای دیجیتال"
+
+#: __inc/pages/tabs/wpi-tab-information.php:261
+msgid "save"
+msgstr "ذخیره"
+
+#: __inc/pages/tabs/wpi-tab-information.php:262
+msgid "reset"
+msgstr "ریست"
+
+#: __inc/pages/tabs/wpi-tab-sms.php:1
+msgid ""
+"in this version of the plugin, you can simply install the Persian "
+"WooCommerce SMS plugin and use the countless advantages of this plugin along "
+"with our services."
+msgstr ""
+"در این نسخه از افزونه می توانید به سادگی افزونه پیامک ووکامرس فارسی را نصب "
+"کنید و در کنار خدمات ما از مزایای بی شمار این افزونه استفاده کنید."
+
+#: __inc/pages/tabs/wpi-tab-sms.php:1
+msgid "Download"
+msgstr "بارگزاری"
+
+#: __inc/pages/wpi-settings.php:10 __inc/pages/wpi-settings.php:15
+msgid "General"
+msgstr "عمومی"
+
+#: __inc/pages/wpi-settings.php:15 __inc/wpi-admin-menu.php:44
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: __inc/pages/wpi-settings.php:20
+#, fuzzy
+#| msgid "SMS Pro"
+msgid "SMS"
+msgstr "پیامک پرو"
+
+#: __inc/pages/wpi-settings.php:26
+msgid "Registration"
+msgstr "ثبت"
+
+#: __inc/woocommerce/wpi-woocommerce-customorder.php:5
+#: __inc/woocommerce/wpi-woocommerce-customorder.php:17
+#: __inc/woocommerce/wpi-woocommerce-customorder.php:38
+#: __inc/woocommerce/wpi-woocommerce-method.php:24
+msgid "Pre Invoice"
+msgstr "پیش فاکتور"
+
+#: __inc/woocommerce/wpi-woocommerce-customorder.php:10
+#, php-format
+msgid "Pre Invoice <span class=\"count\">(%s)</span>"
+msgid_plural "Pre Invoice<span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: __inc/woocommerce/wpi-woocommerce-customorder.php:26
+msgid "Change status to Pre Invoice"
+msgstr "تغییر وضعیت به پیش فاکتور"
+
+#: __inc/woocommerce/wpi-woocommerce-functions.php:118
+#: __inc/woocommerce/wpi-woocommerce-functions.php:165
+#: templates/wpi-template-default.php:25
+msgid "Preview Pre Invoice"
+msgstr "مشاهده پیش فاکتور"
+
+#: __inc/woocommerce/wpi-woocommerce-functions.php:165
+msgid "Invoice Number"
+msgstr "شماره پیش فاکتور"
+
+#: __inc/woocommerce/wpi-woocommerce-functions.php:192
+#: __inc/woocommerce/wpi-woocommerce-vieworder.php:17
+msgid "Print Now"
+msgstr "چاپ برگه"
+
+#: __inc/woocommerce/wpi-woocommerce-functions.php:193
+msgid "Save as Pre Invoice"
+msgstr "ذخیره پیش فاکتور"
+
+#: __inc/woocommerce/wpi-woocommerce-functions.php:195
+msgid "Back"
+msgstr "بازگشت"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:11 __inc/wpi-hooks.php:12
+msgid "Configure"
+msgstr "پیکربندی"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:25
+msgid "settings of pre invoice woocommerce"
+msgstr "تنظیماتی از پیش فاکتور ووکامرس"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:46
+msgid "Setting Pre Invoice Method"
+msgstr "تنظیمات متود پیش فاکتور"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:51
+msgid "Disable/Enabled"
+msgstr "غیرفعال/فعالسازی"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:53
+msgid "Active Pre Invoice Method"
+msgstr "فعال سازی متود پیش فاکتورس"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:58
+msgid "Title Method"
+msgstr "عنوان متود"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:64
+msgid "Description Method"
+msgstr "توضیحات متود"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:67
+#: __inc/woocommerce/wpi-woocommerce-method.php:68
+msgid "You can easily register your pre-invoice."
+msgstr "شما به راحتی میتوانید پیش فاکتور خود را ثبت کنید."
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:72
+msgid "Description Method Not Logged"
+msgstr "توضیحات درگاه در صورت لاگین نبودن"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:75
+#: __inc/woocommerce/wpi-woocommerce-method.php:76 __inc/wpi-hooks.php:133
+msgid "you must be logged."
+msgstr "شما میبایست وارد سایت شوید."
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:79
+msgid "General Text"
+msgstr "متن عمومی"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:84
+msgid "Pre Invoice Created."
+msgstr "پیش فاکتور ساخته شد."
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:86
+msgid "Tanks for choose WPI Plugin woocommerce"
+msgstr "با تشکر از اینکه پلاگین WPI را انتخاب کرده اید"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:89
+msgid "Pre Invoice Has been failed"
+msgstr "پیش فاکتور ناموفق بود"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:91
+msgid "Please contact us administrator"
+msgstr "لطفا با مدیریت سایت ارتباط برقرار کیند"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:113
+msgid "Login"
+msgstr "ورود"
+
+#: __inc/woocommerce/wpi-woocommerce-method.php:122
+msgid "Awaiting Pre invoice"
+msgstr "در انتظار پیش فاکتور"
+
+#: __inc/woocommerce/wpi-woocommerce-myaccount.php:6
+msgid "Print Pre Invoice"
+msgstr "چاپ پیش فاکتور"
+
+#: __inc/woocommerce/wpi-woocommerce-shop_order.php:23
+msgid "Change Pre Invoice"
+msgstr "تغییر وضعیت به پیش فاکتور"
+
+#: __inc/woocommerce/wpi-woocommerce-shop_order.php:49
+msgid "No need to change"
+msgstr "نیاز به تغییر ندارد"
+
+#: __inc/wpi-admin-menu.php:12
+msgid "Woo Pre Invoice "
+msgstr "پیش فاکتور ووکامرس "
+
+#: __inc/wpi-admin-menu.php:13
+msgid "Woo Pre Invoice"
+msgstr "پیش فاکتور ووکامرس"
+
+#: __inc/wpi-admin-menu.php:24
+msgid "List Pre Invoice"
+msgstr "لیست پیش فاکتور"
+
+#: __inc/wpi-admin-menu.php:32
+msgid "Add Pre Invoice"
+msgstr "افزودن پیش فاکتور"
+
+#: __inc/wpi-hooks.php:25
+msgid ""
+"<p><b>WooCommerce Pre Invoices requires the WooCommerce plugin to be "
+"installed and active. You can download <a href=\"https://wordpress.org/"
+"plugins/woocommerce/\">WooCommerce</a> here.</b></p>"
+msgstr ""
+"<p><b>افزونه پیش فاکتور ووکامرس نیاز به نصب و فعال سازی افزونه ووکامرس دارد. "
+"شما میتوانید از <a href=\"https://wordpress.org/plugins/woocommerce/"
+"\">WooCommerce</a> اینجا دانلود کنید.</b></p>"
+
+#: __inc/wpi-hooks.php:31
+msgid ""
+"<p><b>WooCommerce Pre Invoices requires the for send message Persian "
+"Woocommerce  SMS plugin to be installed and active. You can download <a href="
+"\"https://wordpress.org/plugins/persian-woocommerce-sms/\">WooCommerce</a> "
+"here.</b></p>"
+msgstr ""
+"<p><b>پیش فاکتور ووکامرس نیاز به نصب و فعال سازی افزونه پیام کوتاه ووکامرس "
+"فارسی برای ارسال پیام دارد. شما میتوانید از <a href=\"https://wordpress.org/"
+"plugins/persian-woocommerce-sms/\">اینجا</a> دانلود کنید.</b></p>"
+
+#: __inc/wpi-hooks.php:125
+msgid "settings"
+msgstr "تنظیمات"
+
+#: __inc/wpi-hooks.php:126
+#, php-format
+msgid "Sorry, plugin  %s could not be found"
+msgstr "متاسفانه %s افزونه یافت نشد"
+
+#: __inc/wpi-hooks.php:130
+msgid "Cart is empty"
+msgstr "سبد خرید خالی میباشد"
+
+#: __inc/wpi-hooks.php:135
+msgid "You Should Select One Invoice"
+msgstr "شما میبایست یک پیش فاکتور انتخاب کنید"
+
+#: __inc/wpi-hooks.php:137
+msgid "this invoice is not exist."
+msgstr "این پیش فاکتور وجود ندارد."
+
+#: __inc/wpi-hooks.php:140 __inc/wpi-hooks.php:145
+msgid "this invoice is not owned."
+msgstr "این پیش فاکتور برای شما نیست."
+
+#: templates/wpi-template-default.php:20
+msgid "date"
+msgstr "تاریخ"
+
+#: templates/wpi-template-default.php:24
+msgid "Invoice number"
+msgstr "شماره پیش فاکتور"
+
+#: templates/wpi-template-default.php:39 templates/wpi-template-default.php:90
+msgid "Address"
+msgstr "آدرس"
+
+#: templates/wpi-template-default.php:47 templates/wpi-template-default.php:83
+msgid "Phone"
+msgstr "تلفن"
+
+#: templates/wpi-template-default.php:51
+msgid "Fax"
+msgstr "فکس"
+
+#: templates/wpi-template-default.php:79
+msgid "Dear buyer"
+msgstr "خریدار محترم"
+
+#: templates/wpi-template-default.php:87
+msgid "Postal code"
+msgstr "کد پستی"
+
+#: templates/wpi-template-default.php:100
+msgid "Row"
+msgstr "ردیف"
+
+#: templates/wpi-template-default.php:101
+msgid "ID"
+msgstr "شناسه"
+
+#: templates/wpi-template-default.php:102
+msgid "Explanation"
+msgstr "شرح"
+
+#: templates/wpi-template-default.php:103
+msgid "the amount of"
+msgstr "مقدار"
+
+#: templates/wpi-template-default.php:104
+msgid "Price"
+msgstr "فی"
+
+#: templates/wpi-template-default.php:105
+msgid "Discount"
+msgstr "تخفیف"
+
+#: templates/wpi-template-default.php:106
+#: templates/wpi-template-default.php:189
+msgid "Total"
+msgstr "جمع"
+
+#: templates/wpi-template-default.php:170
+msgid "Collect the main items"
+msgstr "جمع اقلام اصلی"
+
+#: templates/wpi-template-default.php:173
+msgid "Description"
+msgstr "توضیحات"
+
+#: templates/wpi-template-default.php:185
+msgid "Taxation"
+msgstr "مالیات"
+
+#: templates/wpi-template-default.php:201
+msgid "seal and signature"
+msgstr "مهر و امضا"
+
+#. Plugin Name of the plugin/theme
+msgid "WooCommerce Pre Invoices"
+msgstr "پیش فاکتور ووکامرس"
+
+#. Description of the plugin/theme
+msgid "Create, print & email PDF Pre invoices ."
+msgstr "ساخت و پرینت پیش فاکتور ."
+
+#. Author of the plugin/theme
+msgid "DeveloperMen Team"
+msgstr "توسعه دهندگان شرق"
+
+#. Author URI of the plugin/theme
+msgid "http://developermen.ir"
+msgstr "http://developermen.ir"
+
+#~ msgid "Store URL"
+#~ msgstr "آدرس اینترنتی فروشگاه"
+
+#~ msgid "Company information"
+#~ msgstr "اطلاعات شرکت"
+
+#~ msgid "Register version"
+#~ msgstr "ثبت"
+
+#~ msgid ""
+#~ "You already register your license key. to re validate it, you can use "
+#~ "this form."
+#~ msgstr ""
+#~ "شما در حال حاضر کلید مجوز خود را ثبت کرده اید. برای اعتبارسنجی مجدد آن ، "
+#~ "می توانید از این فرم استفاده کنید."
+
+#~ msgid "Your current license:"
+#~ msgstr "سریال فعلی شما:"
+
+#~ msgid "Revalidate"
+#~ msgstr "اعتبارسنجی مجدد"
+
+#~ msgid "Delete and submit another license"
+#~ msgstr "حذف و ثبت سریال جدید"
+
+#~ msgid "New license key"
+#~ msgstr "سریال جدید"
+
+#~ msgid "Please wait..."
+#~ msgstr "منتظر بمانید..."
+
+#~ msgid "Please activate plugin with your license key to all features work."
+#~ msgstr "لطفاً پلاگین را با کلید مجوز فعال کنید تا همه ویژگی ها کار کنند."
+
+#~ msgid "License key"
+#~ msgstr "سریال"
+
+#~ msgid "Something goes wrong please try again."
+#~ msgstr "مشکلی پیش آمد لطفا دوباره امتحان کنید."
+
+#~ msgid "Please insert your license code"
+#~ msgstr "لطفا سریال خود را وارد کنید"
+
+#~ msgid "License code is valid."
+#~ msgstr "سریال شما صحیح میباشد."
+
+#~ msgid "Thanks! Your license activated successfully."
+#~ msgstr "متشکریم!سریال شما با موفقیت فعال گردید."
+
+#~ msgid "To activating your %s please insert you license key"
+#~ msgstr ""
+#~ "لطفا برای فعال سازی %s سریال خود را وارد نمایید تا از تمامی خدمات ما "
+#~ "استفاده نمایید"
+
+#~ msgid "Register Now"
+#~ msgstr "فعال سازی"
+
+#~ msgid "Check Now"
+#~ msgstr "بررسی کنید"
+
+#~ msgid "Requirement to log in to the account to register a pre-invoice"
+#~ msgstr "شرط ورود به حساب برای ثبت پیش فاکتور"
+
+#~ msgid "Only pre-invoice registration is limited"
+#~ msgstr "فقط ثبت نام قبل از فاکتور محدود است"
+
+#~ msgid "Display random sentences in the pre-invoice"
+#~ msgstr "جملات تصادفی را در پیش فاکتور نمایش دهید"
+
+#~ msgid "Thank you for choose Developermen Team"
+#~ msgstr "ممنون از اینکه توسعه دهندگان شرق را انتخاب کرده اید"
+
+#~ msgid "Activation"
+#~ msgstr "فعال سازی"
+
+#~ msgid "Pre Invoice Print"
+#~ msgstr "چاپ پیش فاکتور"
+
+#~ msgid "You can not delete this page"
+#~ msgstr "شما نمیتوانید این برگه را حذف کنید"
+
+#~ msgid "upload"
+#~ msgstr "آپلود"

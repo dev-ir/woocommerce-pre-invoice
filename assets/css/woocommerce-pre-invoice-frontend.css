@@ -1,0 +1,1 @@
+.wpi_btn_print{margin-bottom:5px;text-align:center;}.focuser{background: #000;}.wpi_payment_method_preview #payment .payment_methods li.payment_method_wc_wpi{animation: wpi-blinker 1s linear forwards;outline: 2px dotted transparent;animation-iteration-count: 5;}@keyframes wpi-blinker {50% {outline-color:red }}
