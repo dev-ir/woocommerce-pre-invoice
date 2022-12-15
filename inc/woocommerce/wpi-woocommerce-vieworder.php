@@ -25,7 +25,7 @@ add_action('init', function () {
 add_action('get_header',function(){
         if(isset(get_option(WPI_OPTIONS)['invoice-page_id'])){
             if(is_page(get_option(WPI_OPTIONS)['invoice-page_id'])){
-                require_once (WPI_PAGES.WPI_PREFIX.'-print.php');
+                require_once (WPI_INC_PATH . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR.WPI_PREFIX.'-print.php');
                 exit;
             }
 

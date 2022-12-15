@@ -1,54 +1,112 @@
-<?php 
+<?php
 /*
 	Plugin Name: WooCommerce Pre Invoices
 	Description: Create, print & email PDF Pre invoices .
-	Version: 2.9
+	Version: 3.2
 	Author: DeveloperMen Team
 	Author URI: http://developermen.ir
 	Text Domain: wpi_lang
 	Domain Path: /languages
+	PREFIX: wpi
 */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+# Load instance after load plugin.
+add_action('plugin_loaded', ['wc_pre_invoice', 'instance']);
 
-if( !function_exists('get_plugin_data') ){
-    require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-}
-if( ! defined('WPI_PATH') ){
-	define( 'WPI_PATH',dirname(__FILE__) );
-}
-if( ! defined('WPI_INC_PATH') ){
-	define('WPI_INC_PATH',WPI_PATH.DIRECTORY_SEPARATOR .'inc'.DIRECTORY_SEPARATOR);
-}
-if( ! defined('WPI_TPL_PATH') ){
-	define('WPI_TPL_PATH',WPI_PATH.DIRECTORY_SEPARATOR .'templates'.DIRECTORY_SEPARATOR);
-}
-# Define Constans */
-$define = [
-	"WPI_URL"			=> plugin_dir_url( __FILE__ ) . '/',
-	"WPI_VER"			=> get_plugin_data( __FILE__ )['Version'],
-	"WPI_PREFIX"		=> "wpi",
-	"WPI_LANG"			=> get_plugin_data( __FILE__ )['TextDomain'],
-	"WPI_LANG_PATH" 	=> "wpi",
-	"WPI_PREFIX_LANG"	=> dirname( plugin_basename( __FILE__ ) ) .get_plugin_data( __FILE__ )['TextDomain'].'/',
-	"WPI_PAGES"			=> WPI_INC_PATH.DIRECTORY_SEPARATOR .'pages'.DIRECTORY_SEPARATOR,
-	"WPI_FILE"			=> __FILE__,
-	"WPI_FILE_PREFIX"	=> "woocommerce-pre-invoice",
-	"WPI_OPTIONS"		=> "wpi_settings",
-];
+if (!defined('ABSPATH')) exit;
 
-if( is_array($define) ){
-	foreach( $define as $name => $value ){
-		defined("$name") or define("$name","$value");
+if (!class_exists('wc_pre_invoice')) {
+	class wc_pre_invoice
+	{
+
+		public function __construct()
+		{
+			$this->requires();
+			$this->set_define();
+			$this->plugin_data();
+			$this->init_module();
+		}
+
+		private function requires()
+		{
+			if (!function_exists('get_plugin_data')) {
+				require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+			}
+		}
+
+		public function instance()
+		{
+			$instance = null;
+			if ($instance == null) {
+				return new wc_pre_invoice();
+			}
+		}
+
+		private function set_define()
+		{
+			if (!defined('WPI_PATH')) {
+				define('WPI_PATH', plugin_dir_path(__FILE__));
+			}
+
+			if (!defined('WPI_URL')) {
+				define('WPI_URL', plugin_dir_url(__FILE__));
+			}
+
+			if (!defined('WPI_INC_PATH')) {
+				define('WPI_INC_PATH', WPI_PATH . 'inc' . DIRECTORY_SEPARATOR);
+			}
+
+			if (!defined('WPI_TPL_PATH')) {
+				define('WPI_TPL_PATH', WPI_PATH . 'templates' . DIRECTORY_SEPARATOR);
+			}
+
+			if (!defined('WPI_VER')) {
+				define('WPI_VER', $this->plugin_data()->Version);
+			}
+
+			if (!defined('WPI_LANG')) {
+				define('WPI_LANG', $this->plugin_data()->TextDomain);
+			}
+
+			if (!defined('WPI_OPTIONS')) {
+				define('WPI_OPTIONS', 'wpi_settings');
+			}
+
+			if (!defined('WPI_FILE_PREFIX')) {
+				define('WPI_FILE_PREFIX', 'woocommerce-pre-invoice');
+			}
+
+			if (!defined('WPI_PREFIX')) {
+				define('WPI_PREFIX', 'wpi');
+			}
+
+			if (!defined('WPI_FILE')) {
+				define('WPI_FILE', plugin_dir_url(__FILE__));
+			}
+		}
+
+		public function plugin_data()
+		{
+			if (!empty(get_plugin_data(__FILE__))) {
+				return (object) get_plugin_data(__FILE__);
+			}
+		}
+
+		public function init_module()
+		{
+			$include = [
+				'hooks',
+				'admin-menu',
+				'enqueue',
+				'guard',
+				'required',
+				'core'
+			];
+			if (!empty($include)) {
+				foreach ($include as $item) {
+					require_once(WPI_INC_PATH . WPI_PREFIX . '-' . $item . '.php');
+				}
+			}
+		}
 	}
 }
-$include = [
-	'hooks',
-	'admin-menu',
-	'enqueue',
-	'guard',
-	'required',
-	'core'
-];
-foreach( $include as $item )
-	include ( WPI_INC_PATH.WPI_PREFIX.'-'.$item.'.php' );

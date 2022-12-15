@@ -1,10 +1,4 @@
 <?php
-
-/**
- * Filters the array of row meta for each/specific plugin in the Plugins list table.
- * Appends additional links below each/specific plugin on the plugins page.
- * url : https://developer.wordpress.org/reference/hooks/plugin_row_meta/
- */
 if (!function_exists('wpi_plugin_row_meta')) {
     function wpi_plugin_row_meta($links_array, $plugin_file_name, $plugin_data, $status)
     {
@@ -31,14 +25,11 @@ add_action('admin_notices', function () {
             printf('<div class="updated  notice">%s</div>', __('<p><b>WooCommerce Pre Invoices requires the for send message Persian Woocommerce  SMS plugin to be installed and active. You can download <a href="https://wordpress.org/plugins/persian-woocommerce-sms/">WooCommerce</a> here.</b></p>', WPI_LANG));
         });
     }
-
 });
 
 add_action('plugins_loaded', function () {
 
-    load_plugin_textdomain(WPI_LANG, false, WPI_LANG_PATH);
-
-
+    load_plugin_textdomain(WPI_LANG, false, WPI_PREFIX);
 });
 
 
@@ -77,8 +68,8 @@ function wpi__rp($url)
     return $url;
 }
 
-function wpi_update_option( $args ){
-	
+function wpi_update_option($args)
+{
 }
 
 function wpi_uploader($file)
@@ -95,7 +86,6 @@ function wpi_uploader($file)
     if ($movefile && !isset($movefile['error'])) {
 
         return $movefile['url'];
-
     }
 }
 
@@ -153,19 +143,16 @@ if (!function_exists('wpi_print_head')) {
     function wpi_print_head()
     {
         ob_start();
-        ?>
+?>
         <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title><?php wpi_page_title(); ?></title>
         <!-- Font : IRANSans -->
-        <link rel="stylesheet"
-              href="<?php echo WPI_URL; ?>assets/css/IRANSans.css?ver=<?php echo WPI_VER; ?>"/>
+        <link rel="stylesheet" href="<?php echo WPI_URL; ?>assets/css/IRANSans.css?ver=<?php echo WPI_VER; ?>" />
         <!-- main stylesheet -->
-        <link rel="stylesheet"
-              href="<?php echo WPI_URL; ?>assets/css/woocommerce-pre-invoice.css?ver=<?php echo WPI_VER; ?>"/>
-        <?php
+        <link rel="stylesheet" href="<?php echo WPI_URL; ?>assets/css/woocommerce-pre-invoice.css?ver=<?php echo WPI_VER; ?>" />
+<?php
         echo ob_get_clean();
     }
 }
