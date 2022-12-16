@@ -3,8 +3,10 @@ add_action('wp', function () {
 
     if (isset(get_option(WPI_OPTIONS)['invoice-page_id'])) {
         if (is_page(get_option(WPI_OPTIONS)['invoice-page_id'])) {
-            require_once(WPI_INC_PATH . '/pages/' . WPI_PREFIX . '-print.php');
-            exit;
+            if( get_option(WPI_OPTIONS)['invoice-templates'] ){
+                require_once(WPI_PATH . 'templates/'. get_option(WPI_OPTIONS)['invoice-templates'] .DIRECTORY_SEPARATOR. WPI_PREFIX . '-print.php');
+                exit;
+            }
         }
     }
 });

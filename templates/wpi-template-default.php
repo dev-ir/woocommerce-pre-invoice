@@ -18,7 +18,7 @@
         </div>
         <div class="wpi-preinvoice-last">
             <div class="wpi-preinvoice-datetime"><?php _e('date',WPI_LANG);?> :
-                <span class="ltr d-inline-block"><?php echo date_i18n(get_option('date_format'), strtotime(date('Y-m-d'))); ?></span></div>
+                <span class="ltr d-inline-block"><?php echo date_i18n( get_option( 'date_format' ), strtotime(date('Y-m-d H:i:s')) ); ?></span></div>
 			<?php if (get_option(WPI_OPTIONS)['invoice-preinvoice']) : ?>
             <div class="wpi-preinvoice-order-id">
                 <?php _e('Invoice number',WPI_LANG);?>:
