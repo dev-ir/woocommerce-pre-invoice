@@ -26,9 +26,9 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
          'invoice-preinvoice'       => isset($_POST['wpi_services']['invoice-preinvoice']) ? $_POST['wpi_services']['invoice-preinvoice'] :  null,
          'invoice-preinvoice-digital-logo'    => (isset($_POST['wpi_services']['invoice-preinvoice-digital-logo']) ? $_POST['wpi_services']['invoice-preinvoice-digital-logo'] :  null)
       ];
-   foreach ($list as $key => $value) {
-      $wpi_option[$key] = $value;
-   }
+      foreach ($list as $key => $value) {
+         $wpi_option[$key] = $value;
+      }
    } elseif (isset($_POST['wpi_reset'])) {
       if ($wpi_option) {
          foreach ($wpi_option as $key => $value) {
@@ -46,9 +46,48 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
 ?>
 <form enctype="multipart/form-data" method="post">
    <section class="ac-container">
-
       <div>
-         <input id="ac-1" name="accordion-1" type="radio" checked="" class='input'>
+         <input id="ac-6" name="accordion-6" type="radio" class='input'>
+         <label for="ac-6" class='label'> عناوین اصلی </label>
+         <article class="ac-small">
+            <div class="dv-form-setting">
+               <table class="form-table" role="presentation">
+                  <tbody>
+                     <tr>
+                        <th scope="row">
+                           <label for='wpi_services[invoice-name]'> <?php _e('Invoice title', WPI_LANG); ?> </label>
+                        </th>
+                        <td>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-name', __('Sales Invoice', WPI_LANG)); ?>" class="regular-text" id='wpi_services[invoice-name]' name='wpi_services[invoice-name]'>
+                        </td>
+                        <th scope="row">
+                           <label for='wpi_services[invoice-shopname]'> <?php _e('Store Name', WPI_LANG); ?> </label>
+                        </th>
+                        <td>
+                           <input type="text" value="<?php echo   wpi_get_option('invoice-shopname', get_bloginfo('name')); ?>" class="regular-text " id='wpi_services[invoice-shopname]' name='wpi_services[invoice-shopname]'>
+                        </td>
+                     </tr>
+                     <tr>
+                        <th scope="row">
+                           <label for='wpi_services[invoice-slogan]'><?php echo __('Slogan', WPI_LANG); ?></label>
+                        </th>
+                        <td>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-slogan', __('Slogan', WPI_LANG)); ?>" class="regular-text " id='wpi_services[invoice-slogan]' name='wpi_services[invoice-slogan]'>
+                        </td>
+                        <th scope="row">
+                           <label for='wpi_services[invoice-underline]'><?php echo __('The text below the logo', WPI_LANG); ?></label>
+                        </th>
+                        <td>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-underline', ''); ?>" class="regular-text " id='wpi_services[invoice-underline]' name='wpi_services[invoice-underline]'>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </article>
+      </div>
+      <div>
+         <input id="ac-1" name="accordion-1" type="radio" class='input'>
          <label for="ac-1" class='label'> عمومی </label>
          <article class="ac-small">
             <div class="dv-form-setting">
@@ -74,11 +113,45 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
 
       <div>
          <input id="ac-2" name="accordion-1" type="radio" class='input'>
-         <label for="ac-2" class='label'> آدرس و تلفن </label>
+         <label for="ac-2" class='label'> اطلاعات شما / شرکت </label>
          <article class="ac-medium">
             <div class="dv-form-setting">
                <table class="form-table" role="presentation">
                   <tbody>
+                     <tr>
+                        <th scope="row">
+                           <label for='wpi_services[invoice-cellphone]'><?php echo __('Company Name', WPI_LANG); ?></label>
+                        </th>
+                        <td>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-cellphone', ''); ?>" class="regular-text wpi-phone-number" id='wpi_services[invoice-cellphone]' name='wpi_services[invoice-cellphone]'>
+                           <div>
+                              <code><?php echo __('Please put all landlines on one line', WPI_LANG); ?></code>
+                           </div>
+                        </td>
+                        <th scope="row">
+                           <label for='wpi_services[invoice-mobile]'><?php echo __('Meli Code Company', WPI_LANG); ?></label>
+                        </th>
+                        <td>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-mobile', ''); ?>" class="regular-text wpi-phone-number " id="wpi_services[invoice-mobile]" name='wpi_services[invoice-mobile]'>
+                        </td>
+                     </tr>
+                     <tr>
+                        <th scope="row">
+                           <label for='wpi_services[invoice-cellphone]'><?php echo __('Register Number', WPI_LANG); ?></label>
+                        </th>
+                        <td>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-cellphone', ''); ?>" class="regular-text wpi-phone-number" id='wpi_services[invoice-cellphone]' name='wpi_services[invoice-cellphone]'>
+                           <div>
+                              <code><?php echo __('Please put all landlines on one line', WPI_LANG); ?></code>
+                           </div>
+                        </td>
+                        <th scope="row">
+                           <label for='wpi_services[invoice-mobile]'><?php echo __('Economical number', WPI_LANG); ?></label>
+                        </th>
+                        <td>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-mobile', ''); ?>" class="regular-text wpi-phone-number " id="wpi_services[invoice-mobile]" name='wpi_services[invoice-mobile]'>
+                        </td>
+                     </tr>
                      <tr>
                         <th scope="row">
                            <label for='wpi_services[invoice-cellphone]'><?php echo __('Landline phone numbers', WPI_LANG); ?></label>
@@ -126,6 +199,12 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
                         <td>
                            <textarea type="text" rows='5' class="regular-text w-100" id='wpi_services[invoice-address]' name='wpi_services[invoice-address]'><?php echo wpi_get_option('invoice-address', ''); ?></textarea>
                         </td>
+                        <th scope="row">
+                           <label for='wpi_services[invoice-address]'><?php echo __('Description', WPI_LANG); ?></label>
+                        </th>
+                        <td>
+                           <textarea type="text" rows='5' class="regular-text w-100" id='wpi_services[invoice-address]' name='wpi_services[invoice-address]'><?php echo wpi_get_option('invoice-address', ''); ?></textarea>
+                        </td>
                      </tr>
                   </tbody>
                </table>
@@ -134,7 +213,7 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
       </div>
       <div>
          <input id="ac-3" name="accordion-1" type="radio" class='input'>
-         <label for="ac-3" class='label'> لوگو </label>
+         <label for="ac-3" class='label'> تصاویر </label>
          <article class="ac-large">
             <div class="dv-form-setting">
                <table class="form-table" role="presentation">
@@ -186,7 +265,7 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
       </div>
       <div>
          <input id="ac-4" name="accordion-1" type="radio" class='input'>
-         <label for="ac-4" class='label'> فیلدهای اضافی </label>
+         <label for="ac-4" class='label'> ویژگی ها</label>
          <article class="ac-large">
             <div class="dv-form-setting">
                <table class="form-table" role="presentation">
@@ -223,46 +302,7 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
             </div>
          </article>
       </div>
-      <div>
-         <input id="ac-6" name="accordion-6" type="radio" class='input'>
-         <label for="ac-6" class='label'> عنوان ها </label>
-         <article class="ac-small">
-            <div class="dv-form-setting">
-               <table class="form-table" role="presentation">
-                  <tbody>
-                     <tr>
-                        <th scope="row">
-                           <label for='wpi_services[invoice-name]'> <?php _e('Invoice title', WPI_LANG); ?> </label>
-                        </th>
-                        <td>
-                           <input type="text" value="<?php echo wpi_get_option('invoice-name', __('Sales Invoice', WPI_LANG)); ?>" class="regular-text" id='wpi_services[invoice-name]' name='wpi_services[invoice-name]'>
-                        </td>
-                        <th scope="row">
-                           <label for='wpi_services[invoice-shopname]'> <?php _e('Store Name', WPI_LANG); ?> </label>
-                        </th>
-                        <td>
-                           <input type="text" value="<?php echo   wpi_get_option('invoice-shopname', get_bloginfo('name')); ?>" class="regular-text " id='wpi_services[invoice-shopname]' name='wpi_services[invoice-shopname]'>
-                        </td>
-                     </tr>
-                     <tr>
-                        <th scope="row">
-                           <label for='wpi_services[invoice-slogan]'><?php echo __('Slogan', WPI_LANG); ?></label>
-                        </th>
-                        <td>
-                           <input type="text" value="<?php echo wpi_get_option('invoice-slogan', __('Slogan', WPI_LANG)); ?>" class="regular-text " id='wpi_services[invoice-slogan]' name='wpi_services[invoice-slogan]'>
-                        </td>
-                        <th scope="row">
-                           <label for='wpi_services[invoice-underline]'><?php echo __('The text below the logo', WPI_LANG); ?></label>
-                        </th>
-                        <td>
-                           <input type="text" value="<?php echo wpi_get_option('invoice-underline', ''); ?>" class="regular-text " id='wpi_services[invoice-underline]' name='wpi_services[invoice-underline]'>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-         </article>
-      </div>
+
    </section>
    <p class="wpi_form_actions">
       <input type="submit" name="wpi_submit" id="submit" class="button button-primary" value="<?php echo __('save', WPI_LANG); ?>">

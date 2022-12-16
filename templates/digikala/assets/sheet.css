@@ -1,9 +1,276 @@
+:root {
+    --spacing-base: 4px;
+    --global-radius: 8px;
+    --small-radius: 4px;
+    --medium-radius: 8px;
+    --large-radius: 16px;
+    --font-family: IRANSans, sans-serif;
+    --color-white: #fff;
+    --color-black: #0c0c0c;
+    --color-primary-700: #ef394e;
+    --color-primary-500: #ef4056;
+    --color-primary-300: #f37a8a;
+    --color-primary-100: #ffe440;
+    --color-secondary-700: #008eb2;
+    --color-secondary-500: #19bfd3;
+    --color-secondary-300: #008deb;
+    --color-secondary-100: #e6f4f7;
+    --color-green-700: #39ae00;
+    --color-green-500: #6bb927;
+    --color-green-300: #9dc44d;
+    --color-hint-object-neutral: #81858b;
+    --color-hint-object-error: #d32f2f;
+    --color-hint-object-success: #4caf50;
+    --color-hint-object-caution: #f9a825;
+    --color-hint-text-neutral: #62666d;
+    --color-hint-text-error: #b2001a;
+    --color-hint-text-success: #2e7b32;
+    --color-neutral-000: #fff;
+    --color-neutral-100: #f0f0f1;
+    --color-neutral-200: #e0e0e2;
+    --color-neutral-300: #c0c2c5;
+    --color-neutral-400: #a1a3a8;
+    --color-neutral-500: #81858b;
+    --color-neutral-600: #62666d;
+    --color-neutral-700: #424750;
+    --color-neutral-800: #232933;
+    --color-neutral-900: #0c0c0c;
+    --color-button-primary: #ef4056;
+    --color-button-secondary: #19bfd3;
+    --color-button-brand: #e6123d;
+    --color-button-white: #fff;
+    --color-button-black: #0c0c0c;
+    --color-button-disable: #e0e0e2;
+    --color-button-error: #b2001a;
+    --color-button-text-primary: #fff;
+    --color-button-text-secondary: #fff;
+    --color-button-text-white: #0c0c0c;
+    --color-button-text-black: #fff;
+    --color-button-hint-object-error: #d32f2f;
+    --color-icon-primary: #ef4056;
+    --color-icon-secondary: #19bfd3;
+    --color-icon-brand: #e6123d;
+    --color-icon-white: #fff;
+    --color-icon-black: #0c0c0c;
+    --color-icon-disable: #e0e0e2;
+    --color-icon-low-emphasis: #a1a3a8;
+    --color-icon-high-emphasis: #424750;
+    --color-icon-success: #4caf50;
+    --color-icon-warning: #f9a825;
+    --color-icon-neutral-hint: #81858b;
+    --color-icon-primary-100: #ffe440;
+    --color-icon-rating-0-2: #f9bc00;
+    --color-icon-rating-2-3: #b1b64d;
+    --color-icon-rating-3-4: #65aa57;
+    --color-icon-rating-4-5: #00a049;
+    --color-icon-error: #d32f2f;
+    --color-app-background: #f2f2f2;
+    --color-brand-primary-700: #e6123d;
+    --color-white-rgb: 255, 255, 255;
+    --color-black-rgb: 12, 12, 12;
+    --color-primary-700-rgb: 239, 57, 78;
+    --color-primary-500-rgb: 239, 64, 86;
+    --color-primary-300-rgb: 243, 122, 138;
+    --color-primary-100-rgb: 255, 228, 64;
+    --color-secondary-700-rgb: 0, 142, 178;
+    --color-secondary-500-rgb: 25, 191, 211;
+    --color-secondary-300-rgb: 0, 141, 235;
+    --color-secondary-100-rgb: 230, 244, 247;
+    --color-green-700-rgb: 57, 174, 0;
+    --color-green-500-rgb: 107, 185, 39;
+    --color-green-300-rgb: 157, 196, 77;
+    --color-hint-object-neutral-rgb: 129, 133, 139;
+    --color-hint-object-error-rgb: 211, 47, 47;
+    --color-hint-object-success-rgb: 76, 175, 80;
+    --color-hint-object-caution-rgb: 249, 168, 37;
+    --color-hint-text-neutral-rgb: 98, 102, 109;
+    --color-hint-text-error-rgb: 178, 0, 26;
+    --color-hint-text-success-rgb: 46, 123, 50;
+    --color-neutral-000-rgb: 255, 255, 255;
+    --color-neutral-100-rgb: 240, 240, 241;
+    --color-neutral-200-rgb: 224, 224, 226;
+    --color-neutral-300-rgb: 192, 194, 197;
+    --color-neutral-400-rgb: 161, 163, 168;
+    --color-neutral-500-rgb: 129, 133, 139;
+    --color-neutral-600-rgb: 98, 102, 109;
+    --color-neutral-700-rgb: 66, 71, 80;
+    --color-neutral-800-rgb: 35, 41, 51;
+    --color-neutral-900-rgb: 12, 12, 12;
+    --color-button-primary-rgb: 239, 64, 86;
+    --color-button-secondary-rgb: 25, 191, 211;
+    --color-button-brand-rgb: 230, 18, 61;
+    --color-button-white-rgb: 255, 255, 255;
+    --color-button-black-rgb: 12, 12, 12;
+    --color-button-disable-rgb: 224, 224, 226;
+    --color-button-error-rgb: 178, 0, 26;
+    --color-button-text-primary-rgb: 255, 255, 255;
+    --color-button-text-secondary-rgb: 255, 255, 255;
+    --color-button-text-white-rgb: 12, 12, 12;
+    --color-button-text-black-rgb: 255, 255, 255;
+    --color-button-hint-object-error-rgb: 211, 47, 47;
+    --color-icon-primary-rgb: 239, 64, 86;
+    --color-icon-secondary-rgb: 25, 191, 211;
+    --color-icon-brand-rgb: 230, 18, 61;
+    --color-icon-white-rgb: 255, 255, 255;
+    --color-icon-black-rgb: 12, 12, 12;
+    --color-icon-disable-rgb: 224, 224, 226;
+    --color-icon-low-emphasis-rgb: 161, 163, 168;
+    --color-icon-high-emphasis-rgb: 66, 71, 80;
+    --color-icon-success-rgb: 76, 175, 80;
+    --color-icon-warning-rgb: 249, 168, 37;
+    --color-icon-neutral-hint-rgb: 129, 133, 139;
+    --color-icon-primary-100-rgb: 255, 228, 64;
+    --color-icon-rating-0-2-rgb: 249, 188, 0;
+    --color-icon-rating-2-3-rgb: 177, 182, 77;
+    --color-icon-rating-3-4-rgb: 101, 170, 87;
+    --color-icon-rating-4-5-rgb: 0, 160, 73;
+    --color-icon-error-rgb: 211, 47, 47;
+    --color-app-background-rgb: 242, 242, 242;
+    --color-brand-primary-700-rgb: 230, 18, 61
+}
+
+.dark {
+    --color-white: #fff;
+    --color-black: #0c0c0c;
+    --color-primary-700: #f39200;
+    --color-primary-500: #fbb600;
+    --color-primary-300: #ffce00;
+    --color-primary-100: #ffe440;
+    --color-secondary-700: #43bfff;
+    --color-secondary-500: #008deb;
+    --color-secondary-300: #254fc3;
+    --color-secondary-100: #1f1a4f;
+    --color-green-700: #39ae00;
+    --color-green-500: #6bb927;
+    --color-green-300: #9dc44d;
+    --color-hint-object-neutral: #757575;
+    --color-hint-object-error: #d32f2f;
+    --color-hint-object-success: #2e7b32;
+    --color-hint-object-caution: #ff8f00;
+    --color-hint-text-neutral: #bdbdbd;
+    --color-hint-text-error: #ef5350;
+    --color-hint-text-success: #439e47;
+    --color-hint-text-caution: #ffa000;
+    --color-rating-0-2: #f9bc00;
+    --color-rating-2-3: #b1b64d;
+    --color-rating-3-4: #65aa57;
+    --color-rating-4-5: #00a049;
+    --color-neutral-000: #222732;
+    --color-neutral-100: #323641;
+    --color-neutral-200: #424650;
+    --color-neutral-300: #525660;
+    --color-neutral-400: #646770;
+    --color-neutral-500: #767981;
+    --color-neutral-600: #94969c;
+    --color-neutral-700: #c2c3c7;
+    --color-neutral-800: #fff;
+    --color-neutral-900: #fff;
+    --color-button-primary: #ffce00;
+    --color-button-secondary: #008deb;
+    --color-button-white: #fff;
+    --color-button-black: #0c0c0c;
+    --color-button-disable: #424650;
+    --color-button-text-primary: #0c0c0c;
+    --color-button-text-secondary: #fff;
+    --color-button-text-white: #0c0c0c;
+    --color-button-text-black: #fff;
+    --color-icon-primary: #fbb600;
+    --color-icon-secondary: #008deb;
+    --color-icon-white: #fff;
+    --color-icon-black: #0c0c0c;
+    --color-icon-disable: #424650;
+    --color-icon-low-emphasis: #646770;
+    --color-icon-high-emphasis: #c2c3c7;
+    --color-icon-success: #2e7b32;
+    --color-icon-warning: #ff8f00;
+    --color-icon-neutral-hint: #757575;
+    --color-icon-primary-100: #ffe440;
+    --color-icon-rating-0-2: #f9bc00;
+    --color-icon-rating-2-3: #b1b64d;
+    --color-icon-rating-3-4: #65aa57;
+    --color-icon-rating-4-5: #00a049;
+    --color-icon-error: #d32f2f;
+    --color-app-background: #0a101b;
+    --color-brand-primary-700: #e6123d;
+    --color-white-rgb: 255, 255, 255;
+    --color-black-rgb: 12, 12, 12;
+    --color-primary-700-rgb: 243, 146, 0;
+    --color-primary-500-rgb: 251, 182, 0;
+    --color-primary-300-rgb: 255, 206, 0;
+    --color-primary-100-rgb: 255, 228, 64;
+    --color-secondary-700-rgb: 67, 191, 255;
+    --color-secondary-500-rgb: 0, 141, 235;
+    --color-secondary-300-rgb: 37, 79, 195;
+    --color-secondary-100-rgb: 31, 26, 79;
+    --color-green-700-rgb: 57, 174, 0;
+    --color-green-500-rgb: 107, 185, 39;
+    --color-green-300-rgb: 157, 196, 77;
+    --color-hint-object-neutral-rgb: 117, 117, 117;
+    --color-hint-object-error-rgb: 211, 47, 47;
+    --color-hint-object-success-rgb: 46, 123, 50;
+    --color-hint-object-caution-rgb: 255, 143, 0;
+    --color-hint-text-neutral-rgb: 189, 189, 189;
+    --color-hint-text-error-rgb: 239, 83, 80;
+    --color-hint-text-success-rgb: 67, 158, 71;
+    --color-hint-text-caution-rgb: 255, 160, 0;
+    --color-rating-0-2-rgb: 249, 188, 0;
+    --color-rating-2-3-rgb: 177, 182, 77;
+    --color-rating-3-4-rgb: 101, 170, 87;
+    --color-rating-4-5-rgb: 0, 160, 73;
+    --color-neutral-000-rgb: 34, 39, 50;
+    --color-neutral-100-rgb: 50, 54, 65;
+    --color-neutral-200-rgb: 66, 70, 80;
+    --color-neutral-300-rgb: 82, 86, 96;
+    --color-neutral-400-rgb: 100, 103, 112;
+    --color-neutral-500-rgb: 118, 121, 129;
+    --color-neutral-600-rgb: 148, 150, 156;
+    --color-neutral-700-rgb: 194, 195, 199;
+    --color-neutral-800-rgb: 255, 255, 255;
+    --color-neutral-900-rgb: 255, 255, 255;
+    --color-button-primary-rgb: 255, 206, 0;
+    --color-button-secondary-rgb: 0, 141, 235;
+    --color-button-white-rgb: 255, 255, 255;
+    --color-button-black-rgb: 12, 12, 12;
+    --color-button-disable-rgb: 66, 70, 80;
+    --color-button-text-primary-rgb: 12, 12, 12;
+    --color-button-text-secondary-rgb: 255, 255, 255;
+    --color-button-text-white-rgb: 12, 12, 12;
+    --color-button-text-black-rgb: 255, 255, 255;
+    --color-icon-primary-rgb: 251, 182, 0;
+    --color-icon-secondary-rgb: 0, 141, 235;
+    --color-icon-white-rgb: 255, 255, 255;
+    --color-icon-black-rgb: 12, 12, 12;
+    --color-icon-disable-rgb: 66, 70, 80;
+    --color-icon-low-emphasis-rgb: 100, 103, 112;
+    --color-icon-high-emphasis-rgb: 194, 195, 199;
+    --color-icon-success-rgb: 46, 123, 50;
+    --color-icon-warning-rgb: 255, 143, 0;
+    --color-icon-neutral-hint-rgb: 117, 117, 117;
+    --color-icon-primary-100-rgb: 255, 228, 64;
+    --color-icon-rating-0-2-rgb: 249, 188, 0;
+    --color-icon-rating-2-3-rgb: 177, 182, 77;
+    --color-icon-rating-3-4-rgb: 101, 170, 87;
+    --color-icon-rating-4-5-rgb: 0, 160, 73;
+    --color-icon-error-rgb: 211, 47, 47;
+    --color-app-background-rgb: 10, 16, 27;
+    --color-brand-primary-700-rgb: 230, 18, 61
+}
+
 html,
 body {
     padding: 0;
     margin: 0 auto;
     max-width: 29.7cm;
     -webkit-print-color-adjust: exact;
+    direction: rtl;
+    height: 100%;
+    width: 100%
+}
+
+html {
+    font-size: 8px;
+    max-width: 100vw;
+    background-color: #fff
 }
 
 body {
@@ -14,6 +281,7 @@ body {
     overflow: auto;
     padding: 0.5cm
 }
+
 
 * {
     box-sizing: border-box;
@@ -316,270 +584,9 @@ table.centered td {
     overflow: hidden !important
 }
 
-:root {
-    --spacing-base: 4px;
-    --global-radius: 8px;
-    --small-radius: 4px;
-    --medium-radius: 8px;
-    --large-radius: 16px;
-    --font-family: IRANYekan, sans-serif;
-    --color-white: #fff;
-    --color-black: #0c0c0c;
-    --color-primary-700: #ef394e;
-    --color-primary-500: #ef4056;
-    --color-primary-300: #f37a8a;
-    --color-primary-100: #ffe440;
-    --color-secondary-700: #008eb2;
-    --color-secondary-500: #19bfd3;
-    --color-secondary-300: #008deb;
-    --color-secondary-100: #e6f4f7;
-    --color-green-700: #39ae00;
-    --color-green-500: #6bb927;
-    --color-green-300: #9dc44d;
-    --color-hint-object-neutral: #81858b;
-    --color-hint-object-error: #d32f2f;
-    --color-hint-object-success: #4caf50;
-    --color-hint-object-caution: #f9a825;
-    --color-hint-text-neutral: #62666d;
-    --color-hint-text-error: #b2001a;
-    --color-hint-text-success: #2e7b32;
-    --color-neutral-000: #fff;
-    --color-neutral-100: #f0f0f1;
-    --color-neutral-200: #e0e0e2;
-    --color-neutral-300: #c0c2c5;
-    --color-neutral-400: #a1a3a8;
-    --color-neutral-500: #81858b;
-    --color-neutral-600: #62666d;
-    --color-neutral-700: #424750;
-    --color-neutral-800: #232933;
-    --color-neutral-900: #0c0c0c;
-    --color-button-primary: #ef4056;
-    --color-button-secondary: #19bfd3;
-    --color-button-brand: #e6123d;
-    --color-button-white: #fff;
-    --color-button-black: #0c0c0c;
-    --color-button-disable: #e0e0e2;
-    --color-button-error: #b2001a;
-    --color-button-text-primary: #fff;
-    --color-button-text-secondary: #fff;
-    --color-button-text-white: #0c0c0c;
-    --color-button-text-black: #fff;
-    --color-button-hint-object-error: #d32f2f;
-    --color-icon-primary: #ef4056;
-    --color-icon-secondary: #19bfd3;
-    --color-icon-brand: #e6123d;
-    --color-icon-white: #fff;
-    --color-icon-black: #0c0c0c;
-    --color-icon-disable: #e0e0e2;
-    --color-icon-low-emphasis: #a1a3a8;
-    --color-icon-high-emphasis: #424750;
-    --color-icon-success: #4caf50;
-    --color-icon-warning: #f9a825;
-    --color-icon-neutral-hint: #81858b;
-    --color-icon-primary-100: #ffe440;
-    --color-icon-rating-0-2: #f9bc00;
-    --color-icon-rating-2-3: #b1b64d;
-    --color-icon-rating-3-4: #65aa57;
-    --color-icon-rating-4-5: #00a049;
-    --color-icon-error: #d32f2f;
-    --color-app-background: #f2f2f2;
-    --color-brand-primary-700: #e6123d;
-    --color-white-rgb: 255, 255, 255;
-    --color-black-rgb: 12, 12, 12;
-    --color-primary-700-rgb: 239, 57, 78;
-    --color-primary-500-rgb: 239, 64, 86;
-    --color-primary-300-rgb: 243, 122, 138;
-    --color-primary-100-rgb: 255, 228, 64;
-    --color-secondary-700-rgb: 0, 142, 178;
-    --color-secondary-500-rgb: 25, 191, 211;
-    --color-secondary-300-rgb: 0, 141, 235;
-    --color-secondary-100-rgb: 230, 244, 247;
-    --color-green-700-rgb: 57, 174, 0;
-    --color-green-500-rgb: 107, 185, 39;
-    --color-green-300-rgb: 157, 196, 77;
-    --color-hint-object-neutral-rgb: 129, 133, 139;
-    --color-hint-object-error-rgb: 211, 47, 47;
-    --color-hint-object-success-rgb: 76, 175, 80;
-    --color-hint-object-caution-rgb: 249, 168, 37;
-    --color-hint-text-neutral-rgb: 98, 102, 109;
-    --color-hint-text-error-rgb: 178, 0, 26;
-    --color-hint-text-success-rgb: 46, 123, 50;
-    --color-neutral-000-rgb: 255, 255, 255;
-    --color-neutral-100-rgb: 240, 240, 241;
-    --color-neutral-200-rgb: 224, 224, 226;
-    --color-neutral-300-rgb: 192, 194, 197;
-    --color-neutral-400-rgb: 161, 163, 168;
-    --color-neutral-500-rgb: 129, 133, 139;
-    --color-neutral-600-rgb: 98, 102, 109;
-    --color-neutral-700-rgb: 66, 71, 80;
-    --color-neutral-800-rgb: 35, 41, 51;
-    --color-neutral-900-rgb: 12, 12, 12;
-    --color-button-primary-rgb: 239, 64, 86;
-    --color-button-secondary-rgb: 25, 191, 211;
-    --color-button-brand-rgb: 230, 18, 61;
-    --color-button-white-rgb: 255, 255, 255;
-    --color-button-black-rgb: 12, 12, 12;
-    --color-button-disable-rgb: 224, 224, 226;
-    --color-button-error-rgb: 178, 0, 26;
-    --color-button-text-primary-rgb: 255, 255, 255;
-    --color-button-text-secondary-rgb: 255, 255, 255;
-    --color-button-text-white-rgb: 12, 12, 12;
-    --color-button-text-black-rgb: 255, 255, 255;
-    --color-button-hint-object-error-rgb: 211, 47, 47;
-    --color-icon-primary-rgb: 239, 64, 86;
-    --color-icon-secondary-rgb: 25, 191, 211;
-    --color-icon-brand-rgb: 230, 18, 61;
-    --color-icon-white-rgb: 255, 255, 255;
-    --color-icon-black-rgb: 12, 12, 12;
-    --color-icon-disable-rgb: 224, 224, 226;
-    --color-icon-low-emphasis-rgb: 161, 163, 168;
-    --color-icon-high-emphasis-rgb: 66, 71, 80;
-    --color-icon-success-rgb: 76, 175, 80;
-    --color-icon-warning-rgb: 249, 168, 37;
-    --color-icon-neutral-hint-rgb: 129, 133, 139;
-    --color-icon-primary-100-rgb: 255, 228, 64;
-    --color-icon-rating-0-2-rgb: 249, 188, 0;
-    --color-icon-rating-2-3-rgb: 177, 182, 77;
-    --color-icon-rating-3-4-rgb: 101, 170, 87;
-    --color-icon-rating-4-5-rgb: 0, 160, 73;
-    --color-icon-error-rgb: 211, 47, 47;
-    --color-app-background-rgb: 242, 242, 242;
-    --color-brand-primary-700-rgb: 230, 18, 61
-}
-
-.dark {
-    --color-white: #fff;
-    --color-black: #0c0c0c;
-    --color-primary-700: #f39200;
-    --color-primary-500: #fbb600;
-    --color-primary-300: #ffce00;
-    --color-primary-100: #ffe440;
-    --color-secondary-700: #43bfff;
-    --color-secondary-500: #008deb;
-    --color-secondary-300: #254fc3;
-    --color-secondary-100: #1f1a4f;
-    --color-green-700: #39ae00;
-    --color-green-500: #6bb927;
-    --color-green-300: #9dc44d;
-    --color-hint-object-neutral: #757575;
-    --color-hint-object-error: #d32f2f;
-    --color-hint-object-success: #2e7b32;
-    --color-hint-object-caution: #ff8f00;
-    --color-hint-text-neutral: #bdbdbd;
-    --color-hint-text-error: #ef5350;
-    --color-hint-text-success: #439e47;
-    --color-hint-text-caution: #ffa000;
-    --color-rating-0-2: #f9bc00;
-    --color-rating-2-3: #b1b64d;
-    --color-rating-3-4: #65aa57;
-    --color-rating-4-5: #00a049;
-    --color-neutral-000: #222732;
-    --color-neutral-100: #323641;
-    --color-neutral-200: #424650;
-    --color-neutral-300: #525660;
-    --color-neutral-400: #646770;
-    --color-neutral-500: #767981;
-    --color-neutral-600: #94969c;
-    --color-neutral-700: #c2c3c7;
-    --color-neutral-800: #fff;
-    --color-neutral-900: #fff;
-    --color-button-primary: #ffce00;
-    --color-button-secondary: #008deb;
-    --color-button-white: #fff;
-    --color-button-black: #0c0c0c;
-    --color-button-disable: #424650;
-    --color-button-text-primary: #0c0c0c;
-    --color-button-text-secondary: #fff;
-    --color-button-text-white: #0c0c0c;
-    --color-button-text-black: #fff;
-    --color-icon-primary: #fbb600;
-    --color-icon-secondary: #008deb;
-    --color-icon-white: #fff;
-    --color-icon-black: #0c0c0c;
-    --color-icon-disable: #424650;
-    --color-icon-low-emphasis: #646770;
-    --color-icon-high-emphasis: #c2c3c7;
-    --color-icon-success: #2e7b32;
-    --color-icon-warning: #ff8f00;
-    --color-icon-neutral-hint: #757575;
-    --color-icon-primary-100: #ffe440;
-    --color-icon-rating-0-2: #f9bc00;
-    --color-icon-rating-2-3: #b1b64d;
-    --color-icon-rating-3-4: #65aa57;
-    --color-icon-rating-4-5: #00a049;
-    --color-icon-error: #d32f2f;
-    --color-app-background: #0a101b;
-    --color-brand-primary-700: #e6123d;
-    --color-white-rgb: 255, 255, 255;
-    --color-black-rgb: 12, 12, 12;
-    --color-primary-700-rgb: 243, 146, 0;
-    --color-primary-500-rgb: 251, 182, 0;
-    --color-primary-300-rgb: 255, 206, 0;
-    --color-primary-100-rgb: 255, 228, 64;
-    --color-secondary-700-rgb: 67, 191, 255;
-    --color-secondary-500-rgb: 0, 141, 235;
-    --color-secondary-300-rgb: 37, 79, 195;
-    --color-secondary-100-rgb: 31, 26, 79;
-    --color-green-700-rgb: 57, 174, 0;
-    --color-green-500-rgb: 107, 185, 39;
-    --color-green-300-rgb: 157, 196, 77;
-    --color-hint-object-neutral-rgb: 117, 117, 117;
-    --color-hint-object-error-rgb: 211, 47, 47;
-    --color-hint-object-success-rgb: 46, 123, 50;
-    --color-hint-object-caution-rgb: 255, 143, 0;
-    --color-hint-text-neutral-rgb: 189, 189, 189;
-    --color-hint-text-error-rgb: 239, 83, 80;
-    --color-hint-text-success-rgb: 67, 158, 71;
-    --color-hint-text-caution-rgb: 255, 160, 0;
-    --color-rating-0-2-rgb: 249, 188, 0;
-    --color-rating-2-3-rgb: 177, 182, 77;
-    --color-rating-3-4-rgb: 101, 170, 87;
-    --color-rating-4-5-rgb: 0, 160, 73;
-    --color-neutral-000-rgb: 34, 39, 50;
-    --color-neutral-100-rgb: 50, 54, 65;
-    --color-neutral-200-rgb: 66, 70, 80;
-    --color-neutral-300-rgb: 82, 86, 96;
-    --color-neutral-400-rgb: 100, 103, 112;
-    --color-neutral-500-rgb: 118, 121, 129;
-    --color-neutral-600-rgb: 148, 150, 156;
-    --color-neutral-700-rgb: 194, 195, 199;
-    --color-neutral-800-rgb: 255, 255, 255;
-    --color-neutral-900-rgb: 255, 255, 255;
-    --color-button-primary-rgb: 255, 206, 0;
-    --color-button-secondary-rgb: 0, 141, 235;
-    --color-button-white-rgb: 255, 255, 255;
-    --color-button-black-rgb: 12, 12, 12;
-    --color-button-disable-rgb: 66, 70, 80;
-    --color-button-text-primary-rgb: 12, 12, 12;
-    --color-button-text-secondary-rgb: 255, 255, 255;
-    --color-button-text-white-rgb: 12, 12, 12;
-    --color-button-text-black-rgb: 255, 255, 255;
-    --color-icon-primary-rgb: 251, 182, 0;
-    --color-icon-secondary-rgb: 0, 141, 235;
-    --color-icon-white-rgb: 255, 255, 255;
-    --color-icon-black-rgb: 12, 12, 12;
-    --color-icon-disable-rgb: 66, 70, 80;
-    --color-icon-low-emphasis-rgb: 100, 103, 112;
-    --color-icon-high-emphasis-rgb: 194, 195, 199;
-    --color-icon-success-rgb: 46, 123, 50;
-    --color-icon-warning-rgb: 255, 143, 0;
-    --color-icon-neutral-hint-rgb: 117, 117, 117;
-    --color-icon-primary-100-rgb: 255, 228, 64;
-    --color-icon-rating-0-2-rgb: 249, 188, 0;
-    --color-icon-rating-2-3-rgb: 177, 182, 77;
-    --color-icon-rating-3-4-rgb: 101, 170, 87;
-    --color-icon-rating-4-5-rgb: 0, 160, 73;
-    --color-icon-error-rgb: 211, 47, 47;
-    --color-app-background-rgb: 10, 16, 27;
-    --color-brand-primary-700-rgb: 230, 18, 61
-}
 
 
-html {
-    font-size: 8px;
-    max-width: 100vw;
-    background-color: #fff
-}
+
 
 @media(min-width:320px) {
     html {
@@ -2777,84 +2784,7 @@ button.swiper-pagination-bullet {
     }
 }
 
-.Anchor-module_Anchor--primary__3wUG2 {
-    color: var(--color-button-primary)
-}
 
-.Anchor-module_Anchor--secondary__2Ou5G {
-    color: var(--color-button-secondary)
-}
-
-.Anchor-module_Anchor--success__Z0ZTe {
-    color: var(--color-hint-text-success)
-}
-
-.Anchor-module_Anchor--black__dPyuw {
-    color: var(--color-black)
-}
-
-.Anchor-module_Anchor--n-500__GTBAC {
-    color: var(--color-neutral-500)
-}
-
-.Anchor-module_Anchor--white__0E2Bf {
-    color: var(--color-white)
-}
-
-.Anchor-module_Anchor--n-800__Cso0s {
-    color: var(--color-neutral-800)
-}
-
-.Anchor-module_Anchor--caution__s-xV2 {
-    color: var(--color-hint-text-caution)
-}
-
-.Title-module_Title__line__gGmPh {
-    height: .2rem;
-    width: 7rem
-}
-
-.Title-module_Title__line--red__jWT3P {
-    background-color: var(--color-primary-700)
-}
-
-.Loading-module_Loading__circle__VPFX- {
-    -webkit-animation: Loading-module_blink__6O5Fw 1s ease-in-out infinite;
-    animation: Loading-module_blink__6O5Fw 1s ease-in-out infinite;
-    height: .6rem;
-    margin: 0 .1rem;
-    width: .6rem
-}
-
-.Loading-module_Loading__circle__VPFX-:nth-child(2) {
-    -webkit-animation-delay: .25s;
-    animation-delay: .25s
-}
-
-.Loading-module_Loading__circle__VPFX-:nth-child(3) {
-    -webkit-animation-delay: .5s;
-    animation-delay: .5s
-}
-
-.Loading-module_Loading__circle--white__ceOCw {
-    background: var(--color-white)
-}
-
-.Loading-module_Loading__circle--low-emphasis__BFY3N {
-    background: var(--color-icon-low-emphasis)
-}
-
-@-webkit-keyframes Loading-module_blink__6O5Fw {
-    50% {
-        background: #0000
-    }
-}
-
-@keyframes Loading-module_blink__6O5Fw {
-    50% {
-        background: #0000
-    }
-}
 
 .Button-module_btn__daEdK {
     align-items: center;
@@ -2863,7 +2793,8 @@ button.swiper-pagination-bullet {
     cursor: pointer;
     outline: none;
     overflow: hidden;
-    transition: top .3s ease-in-out
+    transition: top .3s ease-in-out;
+    font-family: IRANSans;
 }
 
 .Button-module_btn--primary__RKxUy:not(.Button-module_btn--text__lb44N):not(.Button-module_btn--neutralOutlined__TvBmP) {
@@ -9663,12 +9594,7 @@ html {
     scroll-behavior: smooth
 }
 
-body,
-html {
-    direction: rtl;
-    height: 100%;
-    width: 100%
-}
+
 
 
 body::-webkit-scrollbar {

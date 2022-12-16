@@ -5,34 +5,34 @@ do_action('wpi_print_init');
 <!doctype html>
 <html <?php language_attributes(); ?>>
 
-<head> 
+<head>
     <meta id="vp" name="viewport" content="width=device-width, initial-scale=1.0">
     <?php do_action('wpi_print_head'); ?>
-    <link rel="stylesheet" href="<?php echo WPI_URL . $DIR ; ?>/sheet.css"  />
+    <link rel="stylesheet" href="<?php echo WPI_URL . $DIR; ?>/sheet.css" />
 </head>
 
 <body>
-    <div >
+    <div>
         <div class="h-100 d-flex flex-column bg-000 ai-center">
-            <div class="grow-1 bg-000 d-flex flex-column w-100 ai-center shrink-0" style="padding-top: 0px; padding-left: 0px; padding-bottom: 0px;">
-                <div class="grow-1 bg-000 d-flex flex-column w-100 ai-center BaseLayoutDesktop_BaseLayoutDesktop__content__zIPYj container-xl-w">
+            <div class="grow-1 bg-000 d-flex flex-column w-100 ai-center shrink-0">
+                <div class="grow-1 bg-000 d-flex flex-column w-100 ai-center container-xl-w">
                     <div class="h-full">
-                        <div class="px-4 pb-4 d-flex jc-between ai-center">
+                        <!-- <div class="px-4 pb-4 d-flex jc-between ai-center">
                             <div title="" style="width: 113px; height: 30px;">
-                            <img class="w-100 d-inline-block lazyloaded" width="113" height="30" alt="" style="object-fit: contain;" src="<?php echo get_option(WPI_OPTIONS)['invoice-logo']; ?>"> </div>
+                                <img class="w-100 d-inline-block lazyloaded" width="75" height="75" alt="" style="object-fit: contain;" src="<?php echo get_option(WPI_OPTIONS)['invoice-logo']; ?>">
+                            </div>
                             <div class="d-flex ai-center gap-x-2">
                                 <button class="relative d-flex ai-center user-select-none Button-module_btn__daEdK text-button-2 Button-module_btn--medium__7lzYn Button-module_btn--primary__RKxUy radius-medium text-button-1">
-
-                                    <div class="d-flex ai-center jc-center relative grow-1">پرینت / دانلود</div>
+                                    <div class="">پرینت / دانلود</div>
                                 </button>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="bg-100 pt-1 overflow-auto hide-scrollbar">
-                            <div class="bg-000 p-2 px-0-lg orderInvoce_orderInvoice__vC2nB">
+                            <div class="bg-000 p-2 px-0-lg ">
                                 <div>
                                     <div class="page">
                                         <h1 style="text-align: center;"> <?php echo get_option(WPI_OPTIONS)['invoice-name']; ?></h1>
-                                        <table class="header-table" style="width: 100%">
+                                        <table class="header-table w-100">
                                             <tbody>
                                                 <tr>
                                                     <td style="width: 1.8cm; height: 2.5cm;vertical-align: middle;padding-bottom: 4px;">
@@ -240,9 +240,9 @@ do_action('wpi_print_init');
                                                     var mvp = document.getElementById('vp');
                                                     mvp.setAttribute('content', 'initial-scale=0.7,width=device-width');
                                                 }
-                                        
+
                                             } catch (e) {
-                                        
+
                                             }
                                         }
                                     </script>
@@ -258,5 +258,4 @@ do_action('wpi_print_init');
         </div>
     </div>
 </body>
-
 </html>
