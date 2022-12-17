@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce Pre Invoices\n"
-"POT-Creation-Date: 2022-12-15 20:24+0330\n"
-"PO-Revision-Date: 2022-12-15 20:32+0330\n"
+"POT-Creation-Date: 2022-12-17 23:04+0330\n"
+"PO-Revision-Date: 2022-12-17 23:05+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa_IR\n"
@@ -22,8 +22,8 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #: inc/pages/tabs/wpi-tab-general.php:3
-#: inc/woocommerce/wpi-woocommerce-method.php:60 inc/wpi-hooks.php:50
-#: inc/wpi-hooks.php:111
+#: inc/woocommerce/wpi-woocommerce-method.php:60 inc/wpi-hooks.php:41
+#: inc/wpi-hooks.php:101
 msgid "Pre Invoice Woocommerce"
 msgstr "پیش فاکتور ووکامرس"
 
@@ -47,95 +47,132 @@ msgstr "کاملاً واکنشگرا"
 msgid "Adjustable on different paper sizes (A4, A5)"
 msgstr "قابل تنظیم در اندازه های مختلف کاغذ (A4 ، A5)"
 
-#: inc/pages/tabs/wpi-tab-information.php:62
+#: inc/pages/tabs/wpi-tab-information.php:73
 msgid "Invoice title"
 msgstr "عنوان فاکتور"
 
-#: inc/pages/tabs/wpi-tab-information.php:65
+#: inc/pages/tabs/wpi-tab-information.php:76
 msgid "Sales Invoice"
 msgstr "ذخیره پیش فاکتور"
 
-#: inc/pages/tabs/wpi-tab-information.php:68
+#: inc/pages/tabs/wpi-tab-information.php:79
 msgid "Store Name"
 msgstr "عنوان فروشگاه"
 
-#: inc/pages/tabs/wpi-tab-information.php:76
-#: inc/pages/tabs/wpi-tab-information.php:79
+#: inc/pages/tabs/wpi-tab-information.php:87
+#: inc/pages/tabs/wpi-tab-information.php:90
 msgid "Slogan"
 msgstr "شعار"
 
-#: inc/pages/tabs/wpi-tab-information.php:82
+#: inc/pages/tabs/wpi-tab-information.php:93
 msgid "The text below the logo"
 msgstr "متن زیر لوگو"
 
-#: inc/pages/tabs/wpi-tab-information.php:102
+#: inc/pages/tabs/wpi-tab-information.php:113
+msgid "Invoice Template"
+msgstr "قالب پیش فاکتور"
+
+#: inc/pages/tabs/wpi-tab-information.php:138
+msgid "Company Name"
+msgstr "نام شرکت"
+
+#: inc/pages/tabs/wpi-tab-information.php:144
+#: templates/wpi-template-default.php:62
+msgid "Natural ID Company"
+msgstr "شماره ملی"
+
+#: inc/pages/tabs/wpi-tab-information.php:152
+#: templates/wpi-template-default.php:66
+msgid "Register Number"
+msgstr "شماره ثبت"
+
+#: inc/pages/tabs/wpi-tab-information.php:159
+msgid "Economical number"
+msgstr "شماره اقتصادی"
+
+#: inc/pages/tabs/wpi-tab-information.php:167
 msgid "Landline phone numbers"
 msgstr "شماره تلفن ثابت"
 
-#: inc/pages/tabs/wpi-tab-information.php:108
+#: inc/pages/tabs/wpi-tab-information.php:172
 msgid "Please put all landlines on one line"
 msgstr "لطفاً همه تلفن های ثابت را روی یک خط قرار دهید"
 
-#: inc/pages/tabs/wpi-tab-information.php:112
+#: inc/pages/tabs/wpi-tab-information.php:176
 msgid "Mobile number"
 msgstr "شماره موبایل"
 
-#: inc/pages/tabs/wpi-tab-information.php:121
+#: inc/pages/tabs/wpi-tab-information.php:184
 msgid "Fax number"
 msgstr "شماره فکس"
 
-#: inc/pages/tabs/wpi-tab-information.php:128
-#: templates/wpi-template-default.php:67
+#: inc/pages/tabs/wpi-tab-information.php:190
+#: templates/wpi-template-default.php:84
 msgid "Email"
 msgstr "پست الکترونیکی"
 
-#: inc/pages/tabs/wpi-tab-information.php:138
-#: templates/wpi-template-default.php:62
+#: inc/pages/tabs/wpi-tab-information.php:198
+#: templates/wpi-template-default.php:56
+msgid "Zip Code"
+msgstr "کد پستی"
+
+#: inc/pages/tabs/wpi-tab-information.php:204
+#: templates/wpi-template-default.php:79
 msgid "Website"
 msgstr "وبسایت"
 
-#: inc/pages/tabs/wpi-tab-information.php:147
+#: inc/pages/tabs/wpi-tab-information.php:212
 msgid "Store Location"
 msgstr "آدرس پستی فروشگاه"
 
-#: inc/pages/tabs/wpi-tab-information.php:168
+#: inc/pages/tabs/wpi-tab-information.php:218
+#: templates/wpi-template-default.php:196
+msgid "Description"
+msgstr "توضیحات"
+
+#: inc/pages/tabs/wpi-tab-information.php:238
 msgid "Store Logo"
 msgstr "لوگو فروشگاه"
 
-#: inc/pages/tabs/wpi-tab-information.php:174
-#: inc/pages/tabs/wpi-tab-information.php:198
+#: inc/pages/tabs/wpi-tab-information.php:243
+#: inc/pages/tabs/wpi-tab-information.php:263
 msgid "choose New Image"
 msgstr "انتخاب تصویر جدید"
 
-#: inc/pages/tabs/wpi-tab-information.php:229
+#: inc/pages/tabs/wpi-tab-information.php:290
 msgid "Miscellaneous settings"
 msgstr "تنظیمات متفرقه"
 
-#: inc/pages/tabs/wpi-tab-information.php:234
+#: inc/pages/tabs/wpi-tab-information.php:295
 msgid "Ability to register a pre-invoice only for site members"
 msgstr "امکان ثبت پیش فاکتور فقط برای اعضای سایت"
 
-#: inc/pages/tabs/wpi-tab-information.php:238
+#: inc/pages/tabs/wpi-tab-information.php:299
+msgid "Ability to save proforma invoice"
+msgstr "امکان ذخیره و مشاهده پیش فاکتورها"
+
+#: inc/pages/tabs/wpi-tab-information.php:303
 msgid "Display random sentences"
 msgstr "امکان نمایش جملات تصادفی"
 
-#: inc/pages/tabs/wpi-tab-information.php:242
+#: inc/pages/tabs/wpi-tab-information.php:307
 msgid "Place of seal and signature"
 msgstr "امکان نمایش محل مهر و امضا"
 
-#: inc/pages/tabs/wpi-tab-information.php:246
+#: inc/pages/tabs/wpi-tab-information.php:311
 msgid "Place pre invoice Number"
 msgstr "امکان نمایش شماره پیش فاکتور"
 
-#: inc/pages/tabs/wpi-tab-information.php:250
+#: inc/pages/tabs/wpi-tab-information.php:315
+#: inc/pages/tabs/wpi-tab-information.php:319
 msgid "Place of Digital stamp and signature"
 msgstr "امکان نمایش مهر و امضای دیجیتال"
 
-#: inc/pages/tabs/wpi-tab-information.php:261
+#: inc/pages/tabs/wpi-tab-information.php:331
 msgid "save"
 msgstr "ذخیره"
 
-#: inc/pages/tabs/wpi-tab-information.php:262
+#: inc/pages/tabs/wpi-tab-information.php:332
 msgid "reset"
 msgstr "ریست"
 
@@ -186,30 +223,30 @@ msgstr[1] ""
 msgid "Change status to Pre Invoice"
 msgstr "تغییر وضعیت به پیش فاکتور"
 
-#: inc/woocommerce/wpi-woocommerce-functions.php:118
-#: inc/woocommerce/wpi-woocommerce-functions.php:165
-#: templates/wpi-template-default.php:25
+#: inc/woocommerce/wpi-woocommerce-functions.php:116
+#: inc/woocommerce/wpi-woocommerce-functions.php:163
+#: templates/wpi-template-default.php:26
 msgid "Preview Pre Invoice"
 msgstr "مشاهده پیش فاکتور"
 
-#: inc/woocommerce/wpi-woocommerce-functions.php:165
+#: inc/woocommerce/wpi-woocommerce-functions.php:163
 msgid "Invoice Number"
 msgstr "شماره پیش فاکتور"
 
-#: inc/woocommerce/wpi-woocommerce-functions.php:192
-#: inc/woocommerce/wpi-woocommerce-vieworder.php:17
+#: inc/woocommerce/wpi-woocommerce-functions.php:193
+#: inc/woocommerce/wpi-woocommerce-vieworder.php:28
 msgid "Print Now"
 msgstr "چاپ برگه"
 
-#: inc/woocommerce/wpi-woocommerce-functions.php:193
+#: inc/woocommerce/wpi-woocommerce-functions.php:196
 msgid "Save as Pre Invoice"
 msgstr "ذخیره پیش فاکتور"
 
-#: inc/woocommerce/wpi-woocommerce-functions.php:195
+#: inc/woocommerce/wpi-woocommerce-functions.php:200
 msgid "Back"
 msgstr "بازگشت"
 
-#: inc/woocommerce/wpi-woocommerce-method.php:11 inc/wpi-hooks.php:12
+#: inc/woocommerce/wpi-woocommerce-method.php:11 inc/wpi-hooks.php:6
 msgid "Configure"
 msgstr "پیکربندی"
 
@@ -247,7 +284,7 @@ msgid "Description Method Not Logged"
 msgstr "توضیحات درگاه در صورت لاگین نبودن"
 
 #: inc/woocommerce/wpi-woocommerce-method.php:75
-#: inc/woocommerce/wpi-woocommerce-method.php:76 inc/wpi-hooks.php:133
+#: inc/woocommerce/wpi-woocommerce-method.php:76 inc/wpi-hooks.php:123
 msgid "you must be logged."
 msgstr "شما میبایست وارد سایت شوید."
 
@@ -291,7 +328,7 @@ msgstr "تغییر وضعیت به پیش فاکتور"
 msgid "No need to change"
 msgstr "نیاز به تغییر ندارد"
 
-#: inc/wpi-admin-menu.php:12 inc/wpi-guard.php:670
+#: inc/wpi-admin-menu.php:12 inc/wpi-guard.php:656
 msgid "Woo Pre Invoice "
 msgstr "پیش فاکتور ووکامرس "
 
@@ -307,12 +344,12 @@ msgstr "لیست پیش فاکتور"
 msgid "Add Pre Invoice"
 msgstr "افزودن پیش فاکتور"
 
-#: inc/wpi-guard.php:105 inc/wpi-guard.php:106 inc/wpi-guard.php:261
-#: inc/wpi-guard.php:283 inc/wpi-guard.php:300
+#: inc/wpi-guard.php:96 inc/wpi-guard.php:97 inc/wpi-guard.php:252
+#: inc/wpi-guard.php:274 inc/wpi-guard.php:291
 msgid "Register version"
 msgstr "ثبت"
 
-#: inc/wpi-guard.php:263
+#: inc/wpi-guard.php:254
 msgid ""
 "You already register your license key. to re validate it, you can use this "
 "form."
@@ -320,71 +357,71 @@ msgstr ""
 "شما در حال حاضر کلید مجوز خود را ثبت کرده اید. برای اعتبارسنجی مجدد آن ، می "
 "توانید از این فرم استفاده کنید."
 
-#: inc/wpi-guard.php:265
+#: inc/wpi-guard.php:256
 msgid "Your current license:"
 msgstr "سریال فعلی شما:"
 
-#: inc/wpi-guard.php:277
+#: inc/wpi-guard.php:268
 msgid "Revalidate"
 msgstr "اعتبارسنجی مجدد"
 
-#: inc/wpi-guard.php:278
+#: inc/wpi-guard.php:269
 msgid "Delete and submit another license"
 msgstr "حذف و ثبت سریال جدید"
 
-#: inc/wpi-guard.php:282
+#: inc/wpi-guard.php:273
 msgid "New license key"
 msgstr "سریال جدید"
 
-#: inc/wpi-guard.php:285 inc/wpi-guard.php:291 inc/wpi-guard.php:302
+#: inc/wpi-guard.php:276 inc/wpi-guard.php:282 inc/wpi-guard.php:293
 msgid "Please wait..."
 msgstr "منتظر بمانید..."
 
-#: inc/wpi-guard.php:297
+#: inc/wpi-guard.php:288
 msgid "Please activate plugin with your license key to all features work."
 msgstr "لطفاً پلاگین را با کلید مجوز فعال کنید تا همه ویژگی ها کار کنند."
 
-#: inc/wpi-guard.php:299
+#: inc/wpi-guard.php:290
 msgid "License key"
 msgstr "سریال"
 
-#: inc/wpi-guard.php:331 inc/wpi-guard.php:363
+#: inc/wpi-guard.php:322 inc/wpi-guard.php:354
 msgid "Something goes wrong please try again."
 msgstr "مشکلی پیش آمد لطفا دوباره امتحان کنید."
 
-#: inc/wpi-guard.php:392 inc/wpi-guard.php:460
+#: inc/wpi-guard.php:383 inc/wpi-guard.php:451
 msgid "Please insert your license code"
 msgstr "لطفا سریال خود را وارد کنید"
 
-#: inc/wpi-guard.php:408
+#: inc/wpi-guard.php:399
 msgid "License code is valid."
 msgstr "سریال شما صحیح میباشد."
 
-#: inc/wpi-guard.php:412 inc/wpi-guard.php:474
+#: inc/wpi-guard.php:403 inc/wpi-guard.php:465
 msgid "Thanks! Your license activated successfully."
 msgstr "متشکریم!سریال شما با موفقیت فعال گردید."
 
-#: inc/wpi-guard.php:439
+#: inc/wpi-guard.php:430
 #, php-format
 msgid "To activating your %s please insert you license key"
 msgstr ""
 "لطفا برای فعال سازی %s سریال خود را وارد نمایید تا از تمامی خدمات ما استفاده "
 "نمایید"
 
-#: inc/wpi-guard.php:440
+#: inc/wpi-guard.php:431
 msgid "Register Now"
 msgstr "فعال سازی"
 
-#: inc/wpi-guard.php:446
+#: inc/wpi-guard.php:437
 #, php-format
 msgid "There is something wrong with your %s license. please check it."
 msgstr "مشکلی در مجوز %s شما وجود دارد. لطفا آن را چک کنید."
 
-#: inc/wpi-guard.php:447
+#: inc/wpi-guard.php:438
 msgid "Check Now"
 msgstr "بررسی کنید"
 
-#: inc/wpi-guard.php:593
+#: inc/wpi-guard.php:584
 #, php-format
 msgid ""
 "your server curl has problem, return code:%s, please ticket to host to fix "
@@ -393,11 +430,11 @@ msgstr ""
 "CURL سرور شما مشکل دارد، کد برگردانده:%s، لطفاً برای رفع مشکل CURL آدرس url "
 "%s، به میزبان مراجعه کنید"
 
-#: inc/wpi-guard.php:683
+#: inc/wpi-guard.php:668
 msgid "Really ? This Plugin Protected by Zhaket Guardian."
 msgstr "واقعا؟ این پلاگین توسط Zhaket Guardian محافظت می شود."
 
-#: inc/wpi-hooks.php:25
+#: inc/wpi-hooks.php:19
 msgid ""
 "<p><b>WooCommerce Pre Invoices requires the WooCommerce plugin to be "
 "installed and active. You can download <a href=\"https://wordpress.org/"
@@ -407,7 +444,7 @@ msgstr ""
 "شما میتوانید از <a href=\"https://wordpress.org/plugins/woocommerce/"
 "\">WooCommerce</a> اینجا دانلود کنید.</b></p>"
 
-#: inc/wpi-hooks.php:31
+#: inc/wpi-hooks.php:25
 msgid ""
 "<p><b>WooCommerce Pre Invoices requires the for send message Persian "
 "Woocommerce  SMS plugin to be installed and active. You can download <a href="
@@ -418,28 +455,28 @@ msgstr ""
 "فارسی برای ارسال پیام دارد. شما میتوانید از <a href=\"https://wordpress.org/"
 "plugins/persian-woocommerce-sms/\">اینجا</a> دانلود کنید.</b></p>"
 
-#: inc/wpi-hooks.php:125
+#: inc/wpi-hooks.php:115
 msgid "settings"
 msgstr "تنظیمات"
 
-#: inc/wpi-hooks.php:126
+#: inc/wpi-hooks.php:116
 #, php-format
 msgid "Sorry, plugin  %s could not be found"
 msgstr "متاسفانه %s افزونه یافت نشد"
 
-#: inc/wpi-hooks.php:130
+#: inc/wpi-hooks.php:120
 msgid "Cart is empty"
 msgstr "سبد خرید خالی میباشد"
 
-#: inc/wpi-hooks.php:135
+#: inc/wpi-hooks.php:125
 msgid "You Should Select One Invoice"
 msgstr "شما میبایست یک پیش فاکتور انتخاب کنید"
 
-#: inc/wpi-hooks.php:137
+#: inc/wpi-hooks.php:127
 msgid "this invoice is not exist."
 msgstr "این پیش فاکتور وجود ندارد."
 
-#: inc/wpi-hooks.php:140 inc/wpi-hooks.php:145
+#: inc/wpi-hooks.php:130 inc/wpi-hooks.php:135
 msgid "this invoice is not owned."
 msgstr "این پیش فاکتور برای شما نیست."
 
@@ -447,72 +484,95 @@ msgstr "این پیش فاکتور برای شما نیست."
 msgid "date"
 msgstr "تاریخ"
 
-#: templates/wpi-template-default.php:24
+#: templates/wpi-template-default.php:25
 msgid "Invoice number"
 msgstr "شماره پیش فاکتور"
 
-#: templates/wpi-template-default.php:39 templates/wpi-template-default.php:90
+#: templates/wpi-template-default.php:40 templates/wpi-template-default.php:104
 msgid "Address"
 msgstr "آدرس"
 
-#: templates/wpi-template-default.php:47 templates/wpi-template-default.php:83
+#: templates/wpi-template-default.php:48 templates/wpi-template-default.php:97
 msgid "Phone"
 msgstr "تلفن"
 
-#: templates/wpi-template-default.php:51
+#: templates/wpi-template-default.php:52
 msgid "Fax"
 msgstr "فکس"
 
-#: templates/wpi-template-default.php:79
+#: templates/wpi-template-default.php:70
+msgid "Economical ID"
+msgstr "شناسه اقتصادی"
+
+#: templates/wpi-template-default.php:94
 msgid "Dear buyer"
 msgstr "خریدار محترم"
 
-#: templates/wpi-template-default.php:87
+#: templates/wpi-template-default.php:101
 msgid "Postal code"
 msgstr "کد پستی"
 
-#: templates/wpi-template-default.php:100
+#: templates/wpi-template-default.php:114
 msgid "Row"
 msgstr "ردیف"
 
-#: templates/wpi-template-default.php:101
+#: templates/wpi-template-default.php:115
 msgid "ID"
 msgstr "شناسه"
 
-#: templates/wpi-template-default.php:102
+#: templates/wpi-template-default.php:116
 msgid "Explanation"
 msgstr "شرح"
 
-#: templates/wpi-template-default.php:103
+#: templates/wpi-template-default.php:117
 msgid "the amount of"
 msgstr "مقدار"
 
-#: templates/wpi-template-default.php:104
+#: templates/wpi-template-default.php:118
+#: templates/wpi-template-default.php:169
 msgid "Price"
 msgstr "فی"
 
-#: templates/wpi-template-default.php:105
-msgid "Discount"
-msgstr "تخفیف"
-
-#: templates/wpi-template-default.php:106
-#: templates/wpi-template-default.php:189
+#: templates/wpi-template-default.php:119
+#: templates/wpi-template-default.php:284
+#: templates/wpi-template-default.php:285
 msgid "Total"
 msgstr "جمع"
 
-#: templates/wpi-template-default.php:170
+#: templates/wpi-template-default.php:148
+msgid "Product"
+msgstr "محصول"
+
+#: templates/wpi-template-default.php:161
+msgid "Available on backorder"
+msgstr ""
+
+#: templates/wpi-template-default.php:165
+msgid "Quantity"
+msgstr "تعداد"
+
+#: templates/wpi-template-default.php:174
+#: templates/wpi-template-default.php:208
+#: templates/wpi-template-default.php:209
+msgid "Subtotal"
+msgstr "جمع"
+
+#: templates/wpi-template-default.php:193
 msgid "Collect the main items"
 msgstr "جمع اقلام اصلی"
 
-#: templates/wpi-template-default.php:173
-msgid "Description"
-msgstr "توضیحات"
+#: templates/wpi-template-default.php:236
+#: templates/wpi-template-default.php:237
+msgid "Shipping"
+msgstr "نحوه ارسال"
 
-#: templates/wpi-template-default.php:185
-msgid "Taxation"
-msgstr "مالیات"
+#. translators: %s location.
+#: templates/wpi-template-default.php:256
+#, php-format
+msgid "(estimated for %s)"
+msgstr ""
 
-#: templates/wpi-template-default.php:201
+#: templates/wpi-template-default.php:296
 msgid "seal and signature"
 msgstr "مهر و امضا"
 
@@ -531,6 +591,12 @@ msgstr "توسعه دهندگان شرق"
 #. Author URI of the plugin/theme
 msgid "http://developermen.ir"
 msgstr "http://developermen.ir"
+
+#~ msgid "Discount"
+#~ msgstr "تخفیف"
+
+#~ msgid "Taxation"
+#~ msgstr "مالیات"
 
 #~ msgid "Store URL"
 #~ msgstr "آدرس اینترنتی فروشگاه"

@@ -2,7 +2,7 @@
 /*
 	Plugin Name: WooCommerce Pre Invoices
 	Description: Create, print & email PDF Pre invoices .
-	Version: 3.2
+	Version: 3.3
 	Author: DeveloperMen Team
 	Author URI: http://developermen.ir
 	Text Domain: wpi_lang

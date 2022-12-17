@@ -7,24 +7,39 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
    }
    if (isset($_POST['wpi_submit'])) {
       $list = [
-         'invoice-name'             => $_POST['wpi_services']['invoice-name'],
-         'invoice-shopname'         => $_POST['wpi_services']['invoice-shopname'],
-         'invoice-logo'             => wpi_logo_url($_FILES['dv-preinvoice-logo']),
-         'invoice-digital-logo'     => wpi_logo_url($_FILES['dv-preinvoice-digital-logo']),
-         'invoice-slogan'           => $_POST['wpi_services']['invoice-slogan'],
-         'invoice-underline'        => $_POST['wpi_services']['invoice-underline'],
-         'invoice-cellphone'        => $_POST['wpi_services']['invoice-cellphone'],
-         'invoice-mobile'           => $_POST['wpi_services']['invoice-mobile'],
-         'invoice-fax'              => $_POST['wpi_services']['invoice-fax'],
-         'invoice-email'            => $_POST['wpi_services']['invoice-email'],
-         'invoice-address'          => $_POST['wpi_services']['invoice-address'],
-         'invoice-urlshop'          => $_POST['wpi_services']['invoice-urlshop'],
-         'invoice-is_login'         => isset($_POST['wpi_services']['invoice-is_login']) ? $_POST['wpi_services']['invoice-is_login'] : null,
-         'invoice-random_text'      => isset($_POST['wpi_services']['invoice-random_text']) ? $_POST['wpi_services']['invoice-random_text'] :  null,
-         'invoice-signature'        => isset($_POST['wpi_services']['invoice-signature']) ? $_POST['wpi_services']['invoice-signature'] :  null,
-         'invoice-templates'        => isset($_POST['wpi_services']['invoice-templates']) ? $_POST['wpi_services']['invoice-templates'] :  null,
-         'invoice-preinvoice'       => isset($_POST['wpi_services']['invoice-preinvoice']) ? $_POST['wpi_services']['invoice-preinvoice'] :  null,
-         'invoice-preinvoice-digital-logo'    => (isset($_POST['wpi_services']['invoice-preinvoice-digital-logo']) ? $_POST['wpi_services']['invoice-preinvoice-digital-logo'] :  null)
+         'invoice-name'                      => $_POST['wpi_services']['invoice-name'],
+         'invoice-shopname'                  => $_POST['wpi_services']['invoice-shopname'],
+
+         'invoice-logo'                      => wpi_logo_url($_FILES['dv-preinvoice-logo']),
+         'invoice-digital-logo'              => wpi_logo_url($_FILES['dv-preinvoice-digital-logo']),
+         // 'invoice-preinvoice-digital-logo'   => (isset($_POST['wpi_services']['invoice-preinvoice-digital-logo']) ? $_POST['wpi_services']['invoice-preinvoice-digital-logo'] :  null),
+
+         'invoice-slogan'                    => $_POST['wpi_services']['invoice-slogan'],
+         'invoice-underline'                 => $_POST['wpi_services']['invoice-underline'],
+         'invoice-cellphone'                 => $_POST['wpi_services']['invoice-cellphone'],
+         'invoice-mobile'                    => $_POST['wpi_services']['invoice-mobile'],
+         'invoice-fax'                       => $_POST['wpi_services']['invoice-fax'],
+         'invoice-email'                     => $_POST['wpi_services']['invoice-email'],
+         'invoice-address'                   => $_POST['wpi_services']['invoice-address'],
+         'invoice-urlshop'                   => $_POST['wpi_services']['invoice-urlshop'],
+         'invoice-is_login'                  => isset($_POST['wpi_services']['invoice-is_login']) ? $_POST['wpi_services']['invoice-is_login'] : null,
+         'invoice-random_text'               => isset($_POST['wpi_services']['invoice-random_text']) ? $_POST['wpi_services']['invoice-random_text'] :  null,
+         'invoice-signature'                 => isset($_POST['wpi_services']['invoice-signature']) ? $_POST['wpi_services']['invoice-signature'] :  null,
+         'invoice-templates'                 => isset($_POST['wpi_services']['invoice-templates']) ? $_POST['wpi_services']['invoice-templates'] :  null,
+         'invoice-preinvoice'                => isset($_POST['wpi_services']['invoice-preinvoice']) ? $_POST['wpi_services']['invoice-preinvoice'] :  null,
+         'invoice-description'               => isset($_POST['wpi_services']['invoice-description']) ? $_POST['wpi_services']['invoice-description'] :  null,
+
+         'invoice-register_id'               => isset($_POST['wpi_services']['invoice-register_id']) ? $_POST['wpi_services']['invoice-register_id'] :  null,
+         'invoice-natural_id'                => isset($_POST['wpi_services']['invoice-natural_id']) ? $_POST['wpi_services']['invoice-natural_id'] :  null,
+         'invoice-economical_id'             => isset($_POST['wpi_services']['invoice-economical_id']) ? $_POST['wpi_services']['invoice-economical_id'] :  null,
+         'invoice-postal_code'               => isset($_POST['wpi_services']['invoice-postal_code']) ? $_POST['wpi_services']['invoice-postal_code'] :  null,
+         'invoice-is_save'                   => isset($_POST['wpi_services']['invoice-is_save']) ? $_POST['wpi_services']['invoice-is_save'] :  null,
+
+
+
+         'invoice-company_name'                => isset($_POST['wpi_services']['invoice-company_name']) ? $_POST['wpi_services']['invoice-company_name'] :  null,
+
+
       ];
       foreach ($list as $key => $value) {
          $wpi_option[$key] = $value;
@@ -101,7 +116,7 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
                            <select name="wpi_services[invoice-templates]">
                               <option value="-1" disabled>انتخاب کنید</option>
                               <option value="default" <?php echo (wpi_get_option('invoice-templates', '') == 'default') ? 'selected' : ''; ?>> پیشفرض </option>
-                              <option value="digikala" <?php echo (wpi_get_option('invoice-templates', '') == 'digikala') ? 'selected' : ''; ?>> دیجیکالا </option>
+                              <!-- <option value="digikala" <?php echo (wpi_get_option('invoice-templates', '') == 'digikala') ? 'selected' : ''; ?>> دیجیکالا ( بزودی) </option> -->
                            </select>
                         </td>
                      </tr>
@@ -112,7 +127,7 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
       </div>
 
       <div>
-         <input id="ac-2" name="accordion-1" type="radio" class='input'>
+         <input id="ac-2" name="accordion-1" type="radio" class='input' checked>
          <label for="ac-2" class='label'> اطلاعات شما / شرکت </label>
          <article class="ac-medium">
             <div class="dv-form-setting">
@@ -120,36 +135,31 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
                   <tbody>
                      <tr>
                         <th scope="row">
-                           <label for='wpi_services[invoice-cellphone]'><?php echo __('Company Name', WPI_LANG); ?></label>
+                           <label for='wpi_services[invoice-company_name]'><?php echo __('Company Name', WPI_LANG); ?></label>
                         </th>
                         <td>
-                           <input type="text" value="<?php echo wpi_get_option('invoice-cellphone', ''); ?>" class="regular-text wpi-phone-number" id='wpi_services[invoice-cellphone]' name='wpi_services[invoice-cellphone]'>
-                           <div>
-                              <code><?php echo __('Please put all landlines on one line', WPI_LANG); ?></code>
-                           </div>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-company_name', ''); ?>" class="regular-text " id='wpi_services[invoice-company_name]' name='wpi_services[invoice-company_name]'>
                         </td>
                         <th scope="row">
-                           <label for='wpi_services[invoice-mobile]'><?php echo __('Meli Code Company', WPI_LANG); ?></label>
+                           <label for='wpi_services[invoice-natural_id]'><?php echo __('Natural ID Company', WPI_LANG); ?></label>
                         </th>
                         <td>
-                           <input type="text" value="<?php echo wpi_get_option('invoice-mobile', ''); ?>" class="regular-text wpi-phone-number " id="wpi_services[invoice-mobile]" name='wpi_services[invoice-mobile]'>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-natural_id', ''); ?>" class="regular-text wpi-phone-number " id="wpi_services[invoice-natural_id]" name='wpi_services[invoice-natural_id]'>
                         </td>
                      </tr>
                      <tr>
                         <th scope="row">
-                           <label for='wpi_services[invoice-cellphone]'><?php echo __('Register Number', WPI_LANG); ?></label>
+                           <label for='wpi_services[invoice-register_id]'><?php echo __('Register Number', WPI_LANG); ?></label>
                         </th>
                         <td>
-                           <input type="text" value="<?php echo wpi_get_option('invoice-cellphone', ''); ?>" class="regular-text wpi-phone-number" id='wpi_services[invoice-cellphone]' name='wpi_services[invoice-cellphone]'>
-                           <div>
-                              <code><?php echo __('Please put all landlines on one line', WPI_LANG); ?></code>
-                           </div>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-register_id', ''); ?>" class="regular-text wpi-phone-number" id='wpi_services[invoice-register_id]' name='wpi_services[invoice-register_id]'>
+
                         </td>
                         <th scope="row">
                            <label for='wpi_services[invoice-mobile]'><?php echo __('Economical number', WPI_LANG); ?></label>
                         </th>
                         <td>
-                           <input type="text" value="<?php echo wpi_get_option('invoice-mobile', ''); ?>" class="regular-text wpi-phone-number " id="wpi_services[invoice-mobile]" name='wpi_services[invoice-mobile]'>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-economical_id', ''); ?>" class="regular-text wpi-phone-number " id="wpi_services[invoice-economical_id]" name='wpi_services[invoice-economical_id]'>
                         </td>
                      </tr>
                      <tr>
@@ -174,17 +184,22 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
                            <label for='wpi_services[invoice-fax]'><?php echo __('Fax number', WPI_LANG); ?></label>
                         </th>
                         <td>
-                           <input type="text" value="<?php echo wpi_get_option('invoice-fax', ''); ?>" class="regular-text " id='wpi_services[invoice-fax]' name='wpi_services[invoice-fax]'>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-fax', ''); ?>" class="regular-text code" id='wpi_services[invoice-fax]' name='wpi_services[invoice-fax]'>
                         </td>
                         <th scope="row">
                            <label for="wpi_services[invoice-email]"><?php echo __('Email', WPI_LANG); ?> </label>
                         </th>
                         <td>
-                           <input type="text" value="<?php bloginfo('admin_email'); ?>" class="regular-text code" id='wpi_services[invoice-email]' name='wpi_services[invoice-email]'>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-email', ''); ?>" class="regular-text code" id='wpi_services[invoice-email]' name='wpi_services[invoice-email]'>
                         </td>
                      </tr>
                      <tr>
-
+                        <th scope="row">
+                           <label for="wpi_services[invoice-postal_code]"><?php echo __('Zip Code', WPI_LANG); ?> </label>
+                        </th>
+                        <td>
+                           <input type="text" value="<?php echo wpi_get_option('invoice-postal_code', ''); ?>" class="regular-text code" id='wpi_services[invoice-postal_code]' name='wpi_services[invoice-postal_code]'>
+                        </td>
                         <th scope="row">
                            <label for="wpi_services[invoice-urlshop]"><?php echo __('Website', WPI_LANG); ?> </label>
                         </th>
@@ -200,10 +215,10 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
                            <textarea type="text" rows='5' class="regular-text w-100" id='wpi_services[invoice-address]' name='wpi_services[invoice-address]'><?php echo wpi_get_option('invoice-address', ''); ?></textarea>
                         </td>
                         <th scope="row">
-                           <label for='wpi_services[invoice-address]'><?php echo __('Description', WPI_LANG); ?></label>
+                           <label for='wpi_services[invoice-description]'><?php echo __('Description', WPI_LANG); ?></label>
                         </th>
                         <td>
-                           <textarea type="text" rows='5' class="regular-text w-100" id='wpi_services[invoice-address]' name='wpi_services[invoice-address]'><?php echo wpi_get_option('invoice-address', ''); ?></textarea>
+                           <textarea type="text" rows='5' class="regular-text w-100" id='wpi_services[invoice-description]' name='wpi_services[invoice-description]'><?php echo wpi_get_option('invoice-description', ''); ?></textarea>
                         </td>
                      </tr>
                   </tbody>
@@ -280,6 +295,10 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
                               <label for="wpi_services[invoice-is_login]"><?php _e('Ability to register a pre-invoice only for site members', WPI_LANG); ?></label>
                            </p>
                            <p>
+                              <input type="checkbox" name='wpi_services[invoice-is_save]' id="wpi_services[invoice-is_save]" <?php checked(wpi_get_option('invoice-is_save', ''), 'on', true); ?>>
+                              <label for="wpi_services[invoice-is_save]"><?php _e('Ability to save proforma invoice', WPI_LANG); ?></label>
+                           </p>
+                           <p>
                               <input type="checkbox" name='wpi_services[invoice-random_text]' id="wpi_services[invoice-random_text]" <?php checked(wpi_get_option('invoice-random_text', ''), 'on', true); ?>>
                               <label for='wpi_services[invoice-random_text]'><?php echo __('Display random sentences', WPI_LANG); ?></label>
                            </p>
@@ -290,6 +309,10 @@ if (isset($_POST['wpi_submit']) || isset($_POST['wpi_reset'])) {
                            <p>
                               <input type="checkbox" name='wpi_services[invoice-preinvoice]' id="wpi_services[invoice-preinvoice]" <?php checked(wpi_get_option('invoice-preinvoice', ''), 'on', true); ?>>
                               <label for='wpi_services[invoice-preinvoice]'><?php _e('Place pre invoice Number', WPI_LANG); ?></label>
+                           </p>
+                           <p>
+                              <input type="checkbox" name='wpi_services[invoice-preinvoice-digital-logo]' id="wpi_services[invoice-preinvoice-digital-logo]" <?php checked(wpi_get_option('invoice-preinvoice-digital-logo', ''), 'on', true); ?>>
+                              <label for='wpi_services[invoice-preinvoice-digital-logo]'><?php _e('Place of Digital stamp and signature', WPI_LANG); ?></label>
                            </p>
                            <p>
                               <input type="checkbox" name='wpi_services[invoice-preinvoice-digital-logo]' id="wpi_services[invoice-preinvoice-digital-logo]" <?php checked(wpi_get_option('invoice-preinvoice-digital-logo', ''), 'on', true); ?>>

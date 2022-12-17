@@ -1,6 +1,7 @@
 <?php
 $DIR = '/templates/digikala/assets/';
 do_action('wpi_print_init');
+$option = get_option(WPI_OPTIONS);
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -31,7 +32,7 @@ do_action('wpi_print_init');
                             <div class="bg-000 p-2 px-0-lg ">
                                 <div>
                                     <div class="page">
-                                        <h1 style="text-align: center;"> <?php echo get_option(WPI_OPTIONS)['invoice-name']; ?></h1>
+                                        <h1 style="text-align: center;"> <?php echo $option['invoice-name']; ?></h1>
                                         <table class="header-table w-100">
                                             <tbody>
                                                 <tr>
@@ -45,15 +46,18 @@ do_action('wpi_print_init');
                                                             <table class="grow centered">
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td style="width: 7cm"> <span class="label">فروشنده:</span> شركت نوآوران فن&zwnj;آوازه (سهامی خاص) </td>
-                                                                        <td style="width: 5cm"> <span class="label">شناسه ملی:</span> ۱۰۳۲۰۸۴۵۸۵۷ </td>
-                                                                        <td> <span class="label">شماره ثبت:</span> ۴۳۳۸۴۵ </td>
-                                                                        <td> <span class="label">شماره اقتصادی:</span> ۴۱۱۴۱۹۱۳۶۵۱۱ </td>
+                                                                        <td style="width: 7cm"> <span class="label">فروشنده:</span> <?php echo $option['invoice-company_name']; ?> </td>
+                                                                        <td style="width: 5cm"> <span class="label">شناسه ملی:</span> <?php echo $option['invoice-natural_id']; ?> </td>
+                                                                        <td> <span class="label">شماره ثبت:</span> <?php echo $option['invoice-register_id']; ?> </td>
+                                                                        <td> <span class="label">شماره اقتصادی:</span> <?php echo $option['invoice-economical_id']; ?> </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td colspan="2"> <span class="label">نشانی شرکت:</span>تهران - گاندی جنوبی - نبش خیابان بیست و یکم - پلاک ۲۸ </td>
-                                                                        <td> <span class="label">کدپستی:</span> ۱۵۱۷۸۶۳۳۳۲ </td>
-                                                                        <td> <span class="label">تلفن و فکس:</span> ۰۲۱۶۱۹۳۰۰۰۰ </td>
+                                                                        <td> <span class="label">کدپستی:</span> <?php echo $option['invoice-postal_code']; ?> </td>
+                                                                        <td> <span class="label">پست الکترونیکی:</span> <?php echo $option['invoice-email']; ?> </td>
+                                                                        <td> <span class="label">تلفن ها:</span> <span><?php echo $option['invoice-mobile']; ?> <?php echo $option['invoice-cellphone']; ?></span> </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td colspan="2"> <span class="label">نشانی شرکت:</span> <?php echo $option['invoice-address']; ?> </td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -67,7 +71,7 @@ do_action('wpi_print_init');
                                                             </div>
                                                             <div class="flex">
                                                                 <div>تاریخ:</div>
-                                                                <div class="flex-grow" style="text-align: left">۱۴۰۱/۰۷/۰۹</div>
+                                                                <div class="flex-grow" style="text-align: left"><?php echo date_i18n( get_option( 'date_format' ), strtotime( 'now' ) ); ?></div>
                                                             </div>
                                                             <div class="flex" style="margin-bottom: 4px;">
                                                                 <div>پیگیری:</div>

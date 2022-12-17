@@ -1,1 +1,258 @@
-* {box-sizing: border-box;}body {font-family: arial;background-color: #fff;color: #000;line-height: 1.5;}body.rtl {font: 14px/2em "IRANSans";}.text-center{text-align: center;}.rtl {direction: rtl;text-align: initial;}.ltr {direction: ltr;text-align: initial;}.wpi-preinvoice-content {border: 1px solid #000;}@media screen{.wpi-container{max-width: 980px;margin: 0 auto;}}.wpi-preinvoice-spacing {padding: 8px;}.wpi-preinvoice-head {display: flex;justify-content: space-between;flex-wrap: wrap;}.wpi-preinvoice-head .wpi-preinvoice-first{flex: 0 0 200px;}.wpi-preinvoice-head .wpi-preinvoice-center{flex-grow: 1;text-align: center;}.wpi-preinvoice-head .wpi-preinvoice-last{flex: 0 0 200px;}.wpi-preinvoice-title {font-weight: bold;font-size: 16px;}.wpi-preinvoice-shop-title {text-align: center;}.wpi-preinvoice-cat-title {text-align: center;font-weight: bold;}.wpi-preinvoice-number {direction: ltr;display: inline-block;}.wpi-preinvoice-contact{}.wpi-preinvoice-contact:after{content:'';display:block;clear:both;}.rtl .wpi-preinvoice-contact > div:first-child , .wpi-preinvoice-contact > div:last-child{float:right;}.rtl .wpi-preinvoice-contact > div:last-child , .wpi-preinvoice-contact > div:first-child{float:left;}.wpi-preinvoice-customer-info-row {display: flex;flex-wrap: wrap;justify-content:space-between;}.wpi-preinvoice-customer-address {}.wpi-preinvoice-logo-img img{max-width:65px;max-height:65px;}.d-inline-block{display: inline-block;}.wpi-preinvoice-order-table {border-spacing: 0px;border: 0px;}.wpi-preinvoice-order-table th:first-child,.wpi-preinvoice-order-table td:first-child{border-left: 1px solid #9a9a9a;}.rtl .wpi-preinvoice-order-table th:first-child,.wpi-preinvoice-order-table td:first-child{border-right: 1px solid #9a9a9a;}.wpi-preinvoice-order-table tbody tr:last-child{border-bottom: 1px solid #9a9a9a;}.wpi-preinvoice-order-table th, .wpi-preinvoice-order-table td {padding: 0 8px;}.wpi-preinvoice-order-bottom-info{display: flex;justify-content: space-between;flex-wrap: wrap;}.wpi-preinvoice-order-bottom-info .wpi-preinvoice-order-details{display: flex;flex-wrap: wrap;justify-content: space-between;flex-grow: 1;text-align: justify;}.wpi-preinvoice-order-bottom-info .wpi-preinvoice-order-calc{width:20.5%;}@media (max-width:768px){.wpi-preinvoice-order-bottom-info .wpi-preinvoice-order-calc{width: 100%;}}.wpi-preinvoice-order-bottom-info .wpi-preinvoice-order-calc tr td:first-child{width:48%;}@media print{.wpi-preinvoice-d-print-none{display:none }}.col-12{max-width:100%;flex:0 0 100%;}.wpi-preinvoice-actions{margin: 15px 0;text-align: center;}.wpi-preinvoice-actions a{background-color: #C62828;padding: 5px 8px;box-sizing: border-box;margin-bottom: 8px;display: inline-block;text-decoration: none;color: #fff;}.wpi-preinvoice-actions .green{background-color:#2E7D32 }@page {margin: 0 }.wpi-preinvoice-order-table tbody td span{display: inline-block;}.wpi-preinvoice-order-table tbody td span:first-child{display: none;}@media screen AND (max-width:575.85px){.wpi-preinvoice-head > *{flex:0 0 100% !important;order:1;text-align: center;}.wpi-preinvoice-head > .wpi-preinvoice-center{order:0 }.wpi-preinvoice-head{margin-bottom:15px }.wpi-preinvoice-order-table thead{display: none;}.wpi-preinvoice-order-table tbody td{width: 100%;display: block;text-align:left;border:none !important;}.wpi-preinvoice-order-table tbody tr{border: 1px solid #6d6d6d;display: block;margin-bottom: 15px;padding: 8px;}.wpi-preinvoice-order-table tbody td span:first-child{display: inline-block;font-weight: bold;}body.rtl .wpi-preinvoice-order-table tbody td span:first-child,body:not(.rtl) .wpi-preinvoice-order-table tbody td span:last-child{float:right;}}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: arial;
+    background-color: #fff;
+    color: #000;
+    line-height: 1.5;
+}
+
+body.rtl {
+    font: 14px/2em "IRANSans";
+}
+
+.text-center {
+    text-align: center;
+}
+
+.rtl {
+    direction: rtl;
+    text-align: initial;
+}
+
+.ltr {
+    direction: ltr;
+    text-align: initial;
+}
+
+.wpi-preinvoice-content {
+    border: 1px solid #000;
+}
+
+@media screen {
+    .wpi-container {
+        max-width: 980px;
+        margin: 0 auto;
+    }
+}
+
+.wpi-preinvoice-spacing {
+    padding: 8px;
+}
+
+.wpi-preinvoice-head {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.wpi-preinvoice-head .wpi-preinvoice-first {
+    flex: 0 0 200px;
+}
+
+.wpi-preinvoice-head .wpi-preinvoice-center {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.wpi-preinvoice-head .wpi-preinvoice-last {
+    flex: 0 0 200px;
+}
+
+.wpi-preinvoice-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.wpi-preinvoice-shop-title {
+    text-align: center;
+}
+
+.wpi-preinvoice-cat-title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.wpi-preinvoice-number {
+    direction: ltr;
+    display: inline-block;
+}
+
+.wpi-preinvoice-contact {}
+
+.wpi-preinvoice-contact:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.rtl .wpi-preinvoice-contact>div:first-child,
+.wpi-preinvoice-contact>div:last-child {
+    float: right;
+}
+
+.rtl .wpi-preinvoice-contact>div:last-child,
+.wpi-preinvoice-contact>div:first-child {
+    float: left;
+}
+
+.wpi-preinvoice-customer-info-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.wpi-preinvoice-customer-address {}
+
+.wpi-preinvoice-logo-img img {
+    max-width: 65px;
+    max-height: 65px;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.wpi-preinvoice-order-table {
+    border-spacing: 0px;
+    border: 0px;
+}
+
+.wpi-preinvoice-order-table th:first-child,
+.wpi-preinvoice-order-table td:first-child {
+    border-left: 1px solid #9a9a9a;
+}
+
+.rtl .wpi-preinvoice-order-table th:first-child,
+.wpi-preinvoice-order-table td:first-child {
+    border-right: 1px solid #9a9a9a;
+}
+
+.wpi-preinvoice-order-table tbody tr:last-child {
+    border-bottom: 1px solid #9a9a9a;
+}
+
+.wpi-preinvoice-order-table th,
+.wpi-preinvoice-order-table td {
+    padding: 0 8px;
+}
+
+.wpi-preinvoice-order-bottom-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.wpi-preinvoice-order-bottom-info .wpi-preinvoice-order-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-grow: 1;
+    text-align: justify;
+}
+
+.wpi-preinvoice-order-bottom-info .wpi-preinvoice-order-calc {
+    width: 20.5%;
+}
+
+@media (max-width:768px) {
+    .wpi-preinvoice-order-bottom-info .wpi-preinvoice-order-calc {
+        width: 100%;
+    }
+}
+
+.wpi-preinvoice-order-bottom-info .wpi-preinvoice-order-calc tr td:first-child {
+    width: 48%;
+}
+
+@media print {
+    .wpi-preinvoice-d-print-none {
+        display: none
+    }
+}
+
+.col-12 {
+    max-width: 100%;
+    flex: 0 0 100%;
+}
+
+.wpi-preinvoice-actions {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.wpi-preinvoice-actions a {
+    background-color: #C62828;
+    padding: 5px 8px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+}
+
+.wpi-preinvoice-actions .green {
+    background-color: #2E7D32
+}
+
+@page {
+    margin: 0
+}
+
+.wpi-preinvoice-order-table tbody td span {
+    display: inline-block;
+}
+
+.wpi-preinvoice-order-table tbody td span:first-child {
+    display: none;
+}
+
+@media screen AND (max-width:575.85px) {
+    .wpi-preinvoice-head>* {
+        flex: 0 0 100% !important;
+        order: 1;
+        text-align: center;
+    }
+
+    .wpi-preinvoice-head>.wpi-preinvoice-center {
+        order: 0
+    }
+
+    .wpi-preinvoice-head {
+        margin-bottom: 15px
+    }
+
+    .wpi-preinvoice-order-table thead {
+        display: none;
+    }
+
+    .wpi-preinvoice-order-table tbody td {
+        width: 100%;
+        display: block;
+        text-align: left;
+        border: none !important;
+    }
+
+    .wpi-preinvoice-order-table tbody tr {
+        border: 1px solid #6d6d6d;
+        display: block;
+        margin-bottom: 15px;
+        padding: 8px;
+    }
+
+    .wpi-preinvoice-order-table tbody td span:first-child {
+        display: inline-block;
+        font-weight: bold;
+    }
+
+    body.rtl .wpi-preinvoice-order-table tbody td span:first-child,
+    body:not(.rtl) .wpi-preinvoice-order-table tbody td span:last-child {
+        float: right;
+    }
+}
+.wpi-preinvoice-order-items .product-name > a{
+    color: #000;
+    text-decoration: none;
+}

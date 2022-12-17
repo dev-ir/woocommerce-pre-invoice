@@ -1,21 +1,21 @@
 <?php
+
 /**
  * wpi get option
  * @param $key
  * @param null $default_value
  * @return false|mixed
  */
-function wpi_get_option($key, $default_value =null)
+function wpi_get_option($key, $default_value = null)
 {
 
 
     if (isset(get_option(WPI_OPTIONS)[$key])) {
-        if(!empty(get_option(WPI_OPTIONS)[$key])) return get_option(WPI_OPTIONS)[$key] ;
+        if (!empty(get_option(WPI_OPTIONS)[$key])) return get_option(WPI_OPTIONS)[$key];
     } elseif ($default_value) {
         return $default_value;
     }
     return false;
-
 }
 
 /**
@@ -101,13 +101,11 @@ function wpi_get_owner_orders($customer_user_id = null)
 
                     // The corresponding product ID (Added Compatibility with WC 3+)
                     $product_id[] = method_exists($item, 'get_product_id') ? $item->get_product_id() : $item['product_id'];
-
                 }
             }
 
             return $product_id;
         }
-
     }
     return false;
 }
@@ -169,7 +167,7 @@ function wpi_autoptimize_imgopt_set($class_name = 'wpi-preinvoice-logo')
 {
     if ($autoptimize = get_option('autoptimize_imgopt_settings')) {
         if (array_key_exists('autoptimize_imgopt_text_field_5', $autoptimize)) {
-            if (strpos($autoptimize['autoptimize_imgopt_text_field_5'],$class_name) === false )  {
+            if (strpos($autoptimize['autoptimize_imgopt_text_field_5'], $class_name) === false) {
                 $autoptimize['autoptimize_imgopt_text_field_5'] = !empty($autoptimize['autoptimize_imgopt_text_field_5']) ? $autoptimize['autoptimize_imgopt_text_field_5'] . ',' . $class_name : $class_name . ',';
                 update_option('autoptimize_imgopt_settings', $autoptimize);
             }
@@ -187,14 +185,22 @@ if (!function_exists('wpi_print_actions')) {
     function wpi_print_actions()
     {
         ob_start();
-        ?>
+
+
+
+?>
         <div class="wpi-preinvoice-actions wpi-preinvoice-d-print-none">
             <a href="#" class="button green" onclick="print()"><?php _e('Print Now', WPI_LANG); ?></a>
-            <?php echo wpi_type() == 'cart' ? '<a href="' . esc_url(wc_get_page_permalink('checkout')) . '?wpi_print_learn=true" class="button green">' . __('Save as Pre Invoice', WPI_LANG) . '</a>' : null; ?>
-            <a href="#" onclick="location.href = document.referrer; return false;"
-               class="button"><?php _e('Back', WPI_LANG); ?></a>
+            <?php
+            if (get_option(WPI_OPTIONS)['invoice-is_save'] != null) :
+                echo wpi_type() == 'cart' ? '<a href="' . esc_url(wc_get_page_permalink('checkout')) . '?wpi_print_learn=true" class="button green">' . __('Save as Pre Invoice', WPI_LANG) . '</a>' : null;
+            endif;
+            ?>
+
+            <a href="#" onclick="location.href = document.referrer; return false;" class="button"><?php _e('Back', WPI_LANG); ?></a>
         </div>
-        <?php
+<?php
+
         echo ob_get_clean();
     }
 }
@@ -205,9 +211,9 @@ if (!function_exists('wpi_body_class')) {
             $classes[] = 'rtl';
         }
         if (wpi_get_template()) {
-            $classes[] = 'wpi-template-'.wpi_get_template();
+            $classes[] = 'wpi-template-' . wpi_get_template();
         }
-        $classes[] = is_user_logged_in() ? esc_attr('wpi-user-logged') : esc_attr('wpi-user-logout') ;
+        $classes[] = is_user_logged_in() ? esc_attr('wpi-user-logged') : esc_attr('wpi-user-logout');
 
         // Separates class names with a single space, collates class names for body element.
         echo 'class="' . esc_attr(implode(' ', apply_filters('wpi_body_class', $classes, $class))) . '"';
@@ -218,7 +224,7 @@ if (!function_exists('wpi_body_class')) {
 if (!function_exists('wpi_print_container_open')) {
     function wpi_print_container_open()
     {
-        echo '<div class="'.apply_filters('wpi-container_class', 'wpi-container',$classes).'">';
+        echo '<div class="' . apply_filters('wpi-container_class', 'wpi-container', $classes) . '">';
     }
 }
 
@@ -237,14 +243,19 @@ function wpi_logo_url($file)
     if (!empty($file['name'])) {
         return wpi_uploader($file);
     } else {
-        if(isset($_POST['dv-preinvoice-logo-def'])){
+        if (isset($_POST['dv-preinvoice-logo-def'])) {
             if (!empty($_POST['dv-preinvoice-logo-def'])) {
                 return $_POST['dv-preinvoice-logo-def'];
             }
+        }elseif( isset( $_POST['dv-preinvoice-digital-logo'] )  ){
+
+            if (!empty($_POST['dv-preinvoice-digital-logo'])) {
+                return $_POST['dv-preinvoice-digital-logo'];
+            }
+
         }else {
             return '';
         }
         return '';
     }
-
 }
