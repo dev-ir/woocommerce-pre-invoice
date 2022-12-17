@@ -1,682 +1,370 @@
-<?php
-
-class Zhaket_Guard_SDK {
-
-	/**
-     * Your plugin or theme name. It will be used in admin notices
-	 * @var mixed
-	 */
-	private $name;
-	/**
-     * Registration page slug
-	 * @var mixed
-	 */
-	private $slug;
-	/**
-     * Parent menu slug
-     * More info: https://developer.wordpress.org/reference/functions/add_submenu_page/
-	 * @var mixed
-	 */
-	private $parent_slug;
-	/**
-     * Your plugin or theme text domain
-     * This wil be used to translate Zhaket Guard SDK strings with you theme or plugin translation file
-	 * @var mixed
-	 */
-	private $text_domain;
-	/**
-     * Name of option that save info
-	 * @var mixed
-	 */
-	private static $option_name;
-	/**
-     * Your product token in zhaket.com
-	 * @var mixed
-	 */
-	private $product_token;
-	/**
-     * Zhaket guard API url
-	 * @var string
-	 */
-	public static $api_url = 'guard.zhaket.com/api/';
-
-	/**
-     * Single instance of class
-	 * @var null
-	 */
-	private static $instance = null;
-
-	/**
-	 * Zhaket_Guard_SDK constructor.
-	 */
-	public function __construct(array $settings) {
-
-	    // Initial settings
-		$defaults = [
-			'name'          => '',
-			'slug'          => 'zhk_guard_register',
-			'parent_slug'   => 'options-general.php',
-			'text_domain'   => '',
-			'product_token' => '',
-			'option_name'   => 'zhk_guard_register_settings'
-		];
-		foreach ( $settings as $key => $setting ) {
-			if( array_key_exists($key, $defaults) && !empty($setting) ) {
-				$defaults[$key] = $setting;
-			}
-		}
-		$this->name = $defaults['name'];
-		$this->slug = $defaults['slug'];
-		$this->parent_slug = $defaults['parent_slug'];
-		$this->text_domain = $defaults['text_domain'];
-		self::$option_name = $defaults['option_name'];
-		$this->product_token = $defaults['product_token'];
-
-		add_action('admin_menu', array($this, 'admin_menu'));
-
-		add_action('wp_ajax_'.$this->slug, array($this, 'wp_starter'));
-
-		add_action('wp_ajax_'.$this->slug.'_revalidate', array($this, 'revalidate_starter'));
-
-		add_action('init', array($this, 'schedule_programs'));
-
-		add_action( $this->slug.'_daily_validator', array($this, 'daily_event') );
-
-		add_action( 'admin_notices', array($this, 'admin_notice') );
-
-	}
-
-
-	/**
-	 * Add submenu page for display registration form
-	 */
-	public function admin_menu() {
-		add_submenu_page(
-			$this->parent_slug,
-			__('Register version', $this->text_domain),
-			__('Register version', $this->text_domain),
-			'manage_options',
-			$this->slug,
-			array($this, 'menu_content')
-		);
-	}
-
-	/**
-	 * Submenu content
-	 */
-	public function menu_content() {
-		$option = get_option(self::$option_name);
-		$now = json_decode(get_option($option));
-		$starter = (isset($now->starter) && !empty($now->starter)) ? base64_decode($now->starter) : '';
-		if( isset($_GET['debugger']) && !empty($_GET['debugger']) && $_GET['debugger'] === 'show' ) {
-			$data_show = $option;
-		} else {
-			$data_show = '';
-		}
-		?>
-        <style>
-            form.register_version_form,
-            .current_license {
-                width: 30%;
-                background: #fff;
-                margin: 0 auto;
-                padding: 20px 30px;
-            }
-            form.register_version_form  .license_key {
-                padding: 5px 10px;
-                width: calc( 100% - 100px );
-            }
-
-            form.register_version_form button {
-                width: 80px;
-                text-align: center;
-            }
-
-            form.register_version_form .result,
-            .current_license .check_result {
-                width: 100%;
-                padding: 30px 0 15px;
-                text-align: center;
-                display: none;
-            }
-            .current_license .check_result {
-                padding: 20px 0;
-                float: right;
-                width: 100%;
-            }
-            form.register_version_form .result .spinner,
-            .current_license .check_result .spinner {
-                width: auto;
-                background-position: right center;
-                padding-right: 30px;
-                margin: 0;
-                float: none;
-                visibility: visible;
-                display: none;
-            }
-            .current_license.waiting .check_result .spinner,
-            form.register_version_form .result.show .spinner {
-                display: inline-block;
-            }
-            .current_license {
-                width: 40%;
-                text-align: center;
-            }
-            .current_license > .current_label {
-                line-height: 25px;
-                height: 25px;
-                display: inline-block;
-                font-weight: bold;
-                margin-left: 10px;
-            }
-            .current_license > code {
-                line-height: 25px;
-                height: 25px;
-                padding: 0 5px;
-                color: #c7254e;
-                margin-left: 10px;
-                display: inline-block;
-                -webkit-transform: translateY(2px);
-                -moz-transform: translateY(2px);
-                -ms-transform: translateY(2px);
-                -o-transform: translateY(2px);
-                transform: translateY(2px);
-            }
-            .current_license .action {
-                color: #fff;
-                line-height: 25px;
-                height: 25px;
-                padding: 0 5px;
-                display: inline-block;
-            }
-            .current_license .last_check {
-                line-height: 25px;
-                height: 25px;
-                padding: 0 5px;
-                display: inline-block;
-            }
-            .current_license .action.active {
-                background: #4CAF50;
-            }
-            .current_license .action.inactive {
-                background: #c7254e;
-            }
-
-            .current_license .keys {
-                float: right;
-                width: 100%;
-                text-align: center;
-                padding-top: 20px;
-                border-top: 1px solid #ddd;
-                margin-top: 20px;
-            }
-            .current_license .keys .wpmlr_revalidate {
-                margin-left: 30px;
-            }
-            .current_license .register_version_form {
-                display: none;
-                padding: 0;
-                float: right;
-                width: 80%;
-                margin: 20px 10%;
-            }
-            .zhk_guard_notice {
-                background: #fff;
-                border: 1px solid rgba(0,0,0,.1);
-                border-right: 4px solid #00a0d2;
-                padding: 5px 15px;
-                margin: 5px;
-            }
-            .zhk_guard_danger {
-                background: #fff;
-                border: 1px solid rgba(0,0,0,.1);
-                border-right: 4px solid #DC3232;
-                padding: 5px 15px;
-                margin: 5px;
-            }
-            .zhk_guard_success {
-                background: #fff;
-                border: 1px solid rgba(0,0,0,.1);
-                border-right: 4px solid #46b450;
-                padding: 5px 15px;
-                margin: 5px;
-            }
-            @media (max-width: 1024px) {
-                form.register_version_form,
-                .current_license {
-                    width: 90%;
-                }
-            }
-        </style>
-        <div class="wrap wpmlr_wrap" data-show="<?php echo $data_show ?>">
-            <h1><?php _e('Register version', $this->text_domain); ?></h1>
-			<?php if( isset($now) && !empty($now) ): ?>
-                <p><?php _e('You already register your license key. to re validate it, you can use this form.', $this->text_domain); ?></p>
-                <div class="current_license">
-                    <span class="current_label"><?php _e('Your current license:', $this->text_domain); ?></span>
-                    <code><?php echo $starter; ?></code>
-                    <div class="action <?php echo ($now->action == 1) ? 'active' : 'inactive'; ?>">
-						<?php if( $now->action == 1 ): ?>
-                            <span class="dashicons dashicons-yes"></span>
-							<?php echo $now->message; ?>
-						<?php else: ?>
-                            <span class="dashicons dashicons-no-alt"></span>
-							<?php echo $now->message; ?>
-						<?php endif; ?>
-                    </div>
-                    <div class="keys">
-                        <a href="#" class="button button-primary wpmlr_revalidate" data-key="<?php echo $starter; ?>"><?php _e('Revalidate', $this->text_domain); ?></a>
-                        <a href="#" class="button zhk_guard_new_key"><?php _e('Delete and submit another license', $this->text_domain); ?></a>
-                    </div>
-
-                    <form action="#" method="post" class="register_version_form">
-                        <input type="text" class="license_key" placeholder="<?php _e('New license key', $this->text_domain); ?>">
-                        <button class="button button-primary"><?php _e('Register version', $this->text_domain); ?></button>
-                        <div class="result">
-                            <div class="spinner"><?php _e('Please wait...', $this->text_domain); ?></div>
-                            <div class="result_text"></div>
-                        </div>
-                    </form>
-
-                    <div class="check_result">
-                        <div class="spinner"><?php _e('Please wait...', $this->text_domain); ?></div>
-                        <div class="result_text"></div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-			<?php else: ?>
-                <p><?php _e('Please activate plugin with your license key to all features work.', $this->text_domain); ?></p>
-                <form action="#" method="post" class="register_version_form">
-                    <input type="text" class="license_key" placeholder="<?php _e('License key', $this->text_domain); ?>">
-                    <button class="button button-primary"><?php _e('Register version', $this->text_domain); ?></button>
-                    <div class="result">
-                        <div class="spinner"><?php _e('Please wait...', $this->text_domain); ?></div>
-                        <div class="result_text"></div>
-                    </div>
-                </form>
-			<?php endif; ?>
-            <script>
-                jQuery(document).ready(function($) {
-                    var ajax_url = "<?php echo admin_url('admin-ajax.php'); ?>";
-                    jQuery(document).on('submit', '.register_version_form', function(event) {
-                        event.preventDefault();
-                        var starter = jQuery(this).find('.license_key').val(),
-                            thisEl = jQuery(this);
-                        thisEl.addClass('waiting');
-                        thisEl.find('.result').slideDown(300).addClass('show');
-                        thisEl.find('.button').addClass('disabled');
-                        thisEl.find('.result_text').slideUp(300).html('');
-                        jQuery.ajax({
-                            url: ajax_url,
-                            type: 'POST',
-                            dataType: 'json',
-                            data: {
-                                action: '<?php echo $this->slug; ?>',
-                                starter: starter
-                            },
-                        })
-                            .done(function(result) {
-                                thisEl.find('.result_text').append(result.data).slideDown(150)
-                            })
-                            .fail(function(result) {
-                                thisEl.find('.result_text').append('<div class="zhk_guard_danger"><?php _e('Something goes wrong please try again.', $this->text_domain); ?></div>').slideDown(150)
-                            })
-                            .always(function(result) {
-                                console.log(result);
-                                thisEl.removeClass('waiting');
-                                thisEl.find('.result').removeClass('show');
-                                thisEl.find('.button').removeClass('disabled');
-                            });
-                    });
-
-                    $(document).on('click', '.wpmlr_revalidate', function(event) {
-                        event.preventDefault();
-                        var starter = $(this).data('key'),
-                            thisEl = $(this).parents('.current_license');
-                        thisEl.addClass('waiting');
-                        thisEl.find('.check_result').slideDown(300);
-                        thisEl.find('.button').addClass('disabled');
-                        thisEl.find('.result_text').slideUp(300).html('');
-                        thisEl.find('.register_version_form').slideUp(300)
-                        $.ajax({
-                            url: ajax_url,
-                            type: 'POST',
-                            dataType: 'json',
-                            data: {
-                                action: '<?php echo $this->slug; ?>_revalidate',
-                                starter: starter
-                            },
-                        })
-                            .done(function(result) {
-                                thisEl.find('.check_result .result_text').append(result.data).slideDown(150)
-                            })
-                            .fail(function(result) {
-                                thisEl.find('.check_result .result_text').append('<div class="wpmlr_danger"><?php _e('Something goes wrong please try again.', $this->text_domain); ?></div>').slideDown(150)
-                            })
-                            .always(function(result) {
-                                thisEl.removeClass('waiting');
-                                thisEl.find('.button').removeClass('disabled');
-                            });
-                    });
-
-
-                    $(document).on('click', '.zhk_guard_new_key', function(event) {
-                        event.preventDefault();
-                        var thisEl = $(this).parents('.current_license');
-                        thisEl.find('.result_text').slideUp(300).html('');
-                        thisEl.find('.register_version_form').slideDown(300)
-                    });
-                });
-            </script>
-
-        </div>
-		<?php
-
-	}
-
-	/**
-	 *
-	 */
-	public function wp_starter() {
-		$starter = sanitize_text_field($_POST['starter']);
-		if( empty($starter) ) {
-			wp_send_json_error('<div class="zhk_guard_danger">'.__('Please insert your license code', $this->text_domain).'</div>');
-		}
-
-		$private_session = get_option(self::$option_name);
-		delete_option($private_session);
-
-		$product_token = $this->product_token;
-		$result = self::install($starter, $product_token);
-		$output = '';
-
-		if ($result->status=='successful') {
-			$rand_key = md5(wp_generate_password(12, true, true));
-			update_option(self::$option_name, $rand_key);
-			$result = array(
-				'starter' => base64_encode($starter),
-				'action' => 1,
-				'message' => __('License code is valid.', $this->text_domain),
-				'timer' => time(),
-			);
-			update_option($rand_key, json_encode($result));
-			$output = '<div class="zhk_guard_success">'.__('Thanks! Your license activated successfully.', $this->text_domain).'</div>';
-			wp_send_json_success($output);
-		} else {
-			if (!is_object($result->message)) {
-				$output = '<div class="zhk_guard_danger">'.$result->message.'</div>';
-				wp_send_json_error($output);
-			} else {
-				foreach ($result->message as $message) {
-					foreach ($message as $msg) {
-						$output .= '<div class="zhk_guard_danger">'.$msg.'</div>';
-					}
-				}
-				wp_send_json_error($output);
-			}
-		}
-	}
-
-	/**
-	 * Show admin notice for registration problems
-	 */
-	public function admin_notice() {
-		$private_session = get_option(self::$option_name);
-		$now = json_decode(get_option($private_session));
-		?>
-		<?php if( empty($now) ): ?>
-            <div class="notice notice-error">
-                <p>
-					<?php printf(__( 'To activating your %s please insert you license key', $this->text_domain ), $this->name); ?>
-                    <a href="<?php echo admin_url( 'admin.php?page='.$this->slug ); ?>" class="button button-primary"><?php _e('Register Now', $this->text_domain); ?></a>
-                </p>
-            </div>
-		<?php elseif( $now->action != 1 ): ?>
-            <div class="notice notice-error">
-                <p>
-					<?php printf(__( 'There is something wrong with your %s license. please check it.', $this->text_domain ), $this->name); ?>
-                    <a href="<?php echo admin_url( 'admin.php?page='.$this->slug ); ?>" class="button button-primary"><?php _e('Check Now', $this->text_domain); ?></a>
-                </p>
-            </div>
-		<?php endif; ?>
-		<?php
-	}
-
-	/**
-	 *  Ajax callback for check license action
-	 */
-	public function revalidate_starter() {
-		$starter = sanitize_text_field($_POST['starter']);
-		if( empty($starter) ) {
-			wp_send_json_error('<div class="zhk_guard_danger">'.__('Please insert your license code', $this->text_domain).'</div>');
-		}
-
-		$result = self::is_valid($starter);
-		if ($result->status=='successful') {
-			$rand_key = md5(wp_generate_password(12, true, true));
-			update_option(self::$option_name, $rand_key);
-			$how = array(
-				'starter' => base64_encode($starter),
-				'action' => 1,
-				'message' => $result->message,
-				'timer' => time(),
-			);
-			update_option($rand_key, json_encode($how));
-			$output = '<div class="zhk_guard_success">'.__('Thanks! Your license activated successfully.', $this->text_domain).'</div>';
-			wp_send_json_success($output);
-		} else {
-			$rand_key = md5(wp_generate_password(12, true, true));
-			update_option(self::$option_name, $rand_key);
-			$how = array(
-				'starter' => base64_encode($starter),
-				'action' => 0,
-				'timer' => time(),
-			);
-			if (!is_object($result->message)) {
-				$how['message'] = $result->message;
-			} else {
-				foreach ($result->message as $message) {
-					foreach ($message as $msg) {
-						$how['message'] = $msg;
-					}
-				}
-			}
-			update_option($rand_key, json_encode($how));
-			$output = '<div class="zhk_guard_danger">'.$how['message'].'</div>';
-			wp_send_json_success($output);
-		}
-
-	}
-
-	/**
-	 * Set a schedule event for daily checking
-	 */
-	public function schedule_programs() {
-		if (! wp_next_scheduled ( $this->slug.'_daily_validator' )) {
-			wp_schedule_event(time(), 'daily', $this->slug.'_daily_validator');
-		}
-	}
-
-	/**
-	 * Check license status every day
-	 */
-	public function daily_event() {
-		$private_session = get_option(self::$option_name);
-		$now = json_decode(get_option($private_session));
-		if( isset($now) && !empty($now) ) {
-			$starter = (isset($now->starter) && !empty($now->starter)) ? base64_decode($now->starter) : '';
-			$result = self::is_valid($starter);
-			if( $result != null ) {
-				if ($result->status=='successful') {
-					delete_option($private_session);
-					$rand_key = md5(wp_generate_password(12, true, true));
-					update_option(self::$option_name, $rand_key);
-					$how = array(
-						'starter' => base64_encode($starter),
-						'action' => 1,
-						'message' => $result->message,
-						'timer' => time(),
-					);
-					update_option($rand_key, json_encode($how));
-				} else {
-
-					delete_option($private_session);
-					$rand_key = md5(wp_generate_password(12, true, true));
-					update_option(self::$option_name, $rand_key);
-					$how = array(
-						'starter' => base64_encode($starter),
-						'action' => 0,
-						'timer' => time(),
-					);
-					if (!is_object($result->message)) {
-						$how['message'] = $result->message;
-					} else {
-						foreach ($result->message as $message) {
-							foreach ($message as $msg) {
-								$how['message'] = $msg;
-							}
-						}
-					}
-					update_option($rand_key, json_encode($how));
-				}
-			}
-		}
-	}
-
-	/**
-     * Check license status
-     * If you want add an interrupt in your plugin or theme simply can use this static method: Zhaket_Guard_SDK::is_activated
-     * This will return true or false for license status
-	 * @return bool
-	 */
-	public static function is_activated() {
-		$private_session = get_option(self::$option_name);
-		$now = json_decode(get_option($private_session));
-		if( empty($now) ) {
-			return false;
-		} elseif($now->action != 1) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-	/**
-	 * @param $method
-	 * @param array $params
-	 *
-	 * @return array|mixed|object
-	 */
-    public static function send_request($method, $params = array(), $https = false)
-    {
-        $param_string = http_build_query($params);
-        $protocol = ($https) ? 'https://' : 'http://';
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_URL,
-            $protocol . self::$api_url . $method . '?' . $param_string
-        );
-        $content = curl_exec($ch);
-        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        if ($httpCode === 0) {
-            if ($https) {
-                $message = sprintf(__('your server curl has problem, return code:%s, please ticket to host to fix curl problem for url %s', 'zhaket-guard'), $httpCode, $protocol . self::$api_url);
-                return json_decode(json_encode(['status' => 'error', 'message' => $message]));
-            } else {
-                return self::send_request($method, $params, true);
-            }
-        }
-        return json_decode($content);
-    }
-
-	/**
-	 * @param $license_token
-	 *
-	 * @return array|mixed|object
-	 */
-	public static function is_valid($license_token)	{
-		$result = self::send_request('validation-license',array('token'=>$license_token,'domain'=>self::get_host()));
-		return $result;
-	}
-
-	/**
-	 * @param $license_token
-	 * @param $product_token
-	 *
-	 * @return array|mixed|object
-	 */
-	public static function install($license_token, $product_token) {
-		$result = self::send_request('install-license',array('product_token'=>$product_token,'token'=>$license_token,'domain'=>self::get_host()));
-		return $result;
-	}
-
-	/**
-	 * @return string
-	 */
-	public static function get_host() {
-		$possibleHostSources = array('HTTP_X_FORWARDED_HOST', 'HTTP_HOST', 'SERVER_NAME', 'SERVER_ADDR');
-		$sourceTransformations = array(
-			"HTTP_X_FORWARDED_HOST" => function($value) {
-				$elements = explode(',', $value);
-				return trim(end($elements));
-			}
-		);
-		$host = '';
-		foreach ($possibleHostSources as $source)
-		{
-			if (!empty($host)) break;
-			if (empty($_SERVER[$source])) continue;
-			$host = $_SERVER[$source];
-			if (array_key_exists($source, $sourceTransformations))
-			{
-				$host = $sourceTransformations[$source]($host);
-			}
-		}
-
-		// Remove port number from host
-		$host = preg_replace('/:\d+$/', '', $host);
-		// remove www from host
-		$host = str_ireplace('www.', '', $host);
-
-		return trim($host);
-	}
-
-	public static function instance($settings) {
-		// Check if instance is already exists
-		if(self::$instance == null) {
-			self::$instance = new self($settings);
-		}
-		return self::$instance;
-	}
-
-}
-add_action('init', function () {
-	$settings = [
-		'name'          => __( 'Woo Pre Invoice ', WPI_LANG ),
-		'slug'          => 'wpi_register',
-		'parent_slug'   => 'options-general.php', 
-		'text_domain'   => WPI_LANG,
-		'product_token' => '2c4f965a-3f83-463a-9a8a-e6d3fdc32529',
-		'option_name'   => 'wpi_guard_token'
-	];
-	Zhaket_Guard_SDK::instance($settings);
-});
-
-add_action("init",function (){
-	if( !class_exists('Zhaket_Guard_SDK') ){
-		wp_die( __('Really ? This Plugin Protected by Zhaket Guardian.' , WPI_LANG ));
-	}
-	if( Zhaket_Guard_SDK::is_activated() === true ) {
-		$include = [
-			'customorder',
-			'functions',
-			'method',
-			'vieworder',
-			'myaccount',
-		];
-		foreach( $include as $item ){
-			require_once ( WPI_INC_PATH.'/woocommerce/'.WPI_PREFIX.'-woocommerce-'.$item.'.php' );
-		}
-	}
-});
+<?php //ICB0 74:0                                                             ?><?php //0051e
+// encrypted by 85-2829-1671306500
+if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
+?>
+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
